@@ -1,7 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
 FREERTOS.FootprintOK=true
 FREERTOS.IPParameters=Tasks01,FootprintOK
-FREERTOS.Tasks01=Task01,0,128,StartTask01,Default,NULL,Dynamic,NULL,NULL;Task02,0,128,StartTask02,Default,NULL,Dynamic,NULL,NULL
+FREERTOS.Tasks01=Task01_I2C,3,128,StartTask01_I2C,Default,NULL,Dynamic,NULL,NULL
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
 I2C1.DualAddressMode=I2C_DUALADDRESS_DISABLE
@@ -230,7 +230,7 @@ ProjectManager.StackSize=0x400
 ProjectManager.TargetToolchain=STM32CubeIDE
 ProjectManager.ToolChainLocation=
 ProjectManager.UnderRoot=true
-ProjectManager.functionlistsort=1-MX_GPIO_Init-GPIO-false-HAL-true,2-SystemClock_Config-RCC-false-HAL-false,3-MX_I2C1_Init-I2C1-false-HAL-true,4-MX_USB_PCD_Init-USB-false-HAL-true
+ProjectManager.functionlistsort=1-MX_GPIO_Init-GPIO-false-HAL-true,2-SystemClock_Config-RCC-false-HAL-false,3-MX_I2C1_Init-I2C1-false-HAL-true
 RCC.ADC12outputFreq_Value=48000000
 RCC.ADC34outputFreq_Value=48000000
 RCC.AHBFreq_Value=48000000

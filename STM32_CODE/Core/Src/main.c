@@ -22,16 +22,56 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include<stdbool.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+/**
+ * Structure with the information of each sensor
+ * Sensor name: Commercial reference of current sensor as string.
+ * Sensor type: Current sensor technology type as string.
+ * Main gas: Current sensor main response gas as string.
+ * Response time: Current sensor response time (t90) in seconds.
+ */
+typedef struct Sensor{
+  char Sensor_name[11];
+  char Sensor_type[14];
+  char Main_gas[20];
+  int16_t Response_time;
+  float Data;
+} Sensor;
+/**
+ * Structure with the information of PCB
+ * PCB unique ID: Consecutive for the PCB ID.
+ * Number of sensors: Number of sensor ADC readings
+ * Manufacturing date: PCB manufacturing date as string on dd/mm/yyyy format.
+ * PCB capabilities: Only the 4 LSBs are used to specify the environmental sensors
+	that the PCB has, since not all readings are mandatory. The order is as follows:
+	temperature_degC, temperaturePCB_degC, humidity_percent, absolutePressure_kPa (00001111).
+ */
+typedef struct PCB{
+  int16_t PCBUniqueID;
+  int8_t NumberOfSensors;
+  char ManufacturingDate[10];
+  int8_t PCBCapabilities;
+} PCB;
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+#define temperature_degC 1
+#define temperaturePCB_degC 1
+#define humidity_percent 1
+#define absolutePressure_kPa 1
+
+#define PCBuniqueID 40
+#define Numberofsensors 2
+#define Manufacturingdate "dd/mm/yyyy"
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -42,21 +82,32 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
-osThreadId Task01Handle;
-osThreadId Task02Handle;
+osThreadId Task01_I2CHandle;
 /* USER CODE BEGIN PV */
+//Definition of atmospheric data sensors
+Sensor ExternalTemperatureSensor;
+Sensor InternalTemperatureSensor;
+Sensor HumiditySensor;
+Sensor PressureSensor;
 
+//Definition of tasks for atmospheric data sensors
+osThreadId Task02Handle;
+osThreadId Task03Handle;
+osThreadId Task04Handle;
+osThreadId Task05Handle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
-void StartTask01(void const * argument);
-void StartTask02(void const * argument);
+void StartTask01_I2C(void const * argument);
 
 /* USER CODE BEGIN PFP */
-
+void StartTask02(void const * argument);
+void StartTask03(void const * argument);
+void StartTask04(void const * argument);
+void StartTask05(void const * argument);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -95,6 +146,14 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
+  // PCB data initialization
+  PCB pcb;
+  pcb.PCBUniqueID=PCBuniqueID;
+  pcb.NumberOfSensors=Numberofsensors;
+  strcpy(pcb.ManufacturingDate,Manufacturingdate);
+  pcb.PCBCapabilities=temperature_degC*8 + temperaturePCB_degC*4 + humidity_percent*2 + absolutePressure_kPa;
+
+
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -114,16 +173,32 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of Task01 */
-  osThreadDef(Task01, StartTask01, osPriorityNormal, 0, 128);
-  Task01Handle = osThreadCreate(osThread(Task01), NULL);
-
-  /* definition and creation of Task02 */
-  osThreadDef(Task02, StartTask02, osPriorityNormal, 0, 128);
-  Task02Handle = osThreadCreate(osThread(Task02), NULL);
+  /* definition and creation of Task01_I2C */
+  osThreadDef(Task01_I2C, StartTask01_I2C, osPriorityRealtime, 0, 128);
+  Task01_I2CHandle = osThreadCreate(osThread(Task01_I2C), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
+
+  /* definition and creation of Task02 */
+  if(temperature_degC){
+	osThreadDef(Task02, StartTask02, osPriorityNormal, 0, 128);
+	Task02Handle = osThreadCreate(osThread(Task02), NULL);
+  }
+  /* definition and creation of Task03 */
+  if(temperaturePCB_degC){
+	osThreadDef(Task03, StartTask03, osPriorityNormal, 0, 128);
+	Task03Handle = osThreadCreate(osThread(Task03), NULL);
+  }
+  /* definition and creation of Task04 */
+  if(humidity_percent){
+	osThreadDef(Task04, StartTask04, osPriorityNormal, 0, 128);
+	Task04Handle = osThreadCreate(osThread(Task04), NULL);
+  }
+  /* definition and creation of Task05 */
+  if(absolutePressure_kPa){
+	osThreadDef(Task05, StartTask05, osPriorityNormal, 0, 128);
+	Task05Handle = osThreadCreate(osThread(Task05), NULL);
+  }
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -299,16 +374,113 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+
+/* USER CODE BEGIN Header_StartTask02 */
+/**
+* @brief Function implementing the Task02 thread environment temperature reading.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask02 */
+void StartTask02(void const * argument)
+{
+  /* USER CODE BEGIN StartTask02 */
+  //Sensor initialization
+	strcpy(ExternalTemperatureSensor.Sensor_name,"SHT31-ARP-B");
+	strcpy(ExternalTemperatureSensor.Sensor_type,"Temperature");
+	strcpy(ExternalTemperatureSensor.Main_gas,"....");
+	ExternalTemperatureSensor.Response_time=1;
+  /* Infinite loop */
+  for(;;)
+  {
+	ExternalTemperatureSensor.Data=15.0;
+    osDelay(ExternalTemperatureSensor.Response_time);
+  }
+  /* USER CODE END StartTask02 */
+}
+
+/* USER CODE BEGIN Header_StartTask03 */
+/**
+* @brief Function implementing the Task03 thread internal temperature reading.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask03 */
+void StartTask03(void const * argument)
+{
+  /* USER CODE BEGIN StartTask03 */
+  //Sensor initialization
+	strcpy(InternalTemperatureSensor.Sensor_name,"Internal");
+	strcpy(InternalTemperatureSensor.Sensor_type,"Micro-controller temperature ");
+	strcpy(InternalTemperatureSensor.Main_gas,"....");
+	InternalTemperatureSensor.Response_time=1;
+  /* Infinite loop */
+  for(;;)
+  {
+	InternalTemperatureSensor.Data=15.0;
+    osDelay(InternalTemperatureSensor.Response_time);
+  }
+  /* USER CODE END StartTask03 */
+}
+
+/* USER CODE BEGIN Header_StartTask04 */
+/**
+* @brief Function implementing the Task04 thread Humidity sensor reading.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask04 */
+void StartTask04(void const * argument)
+{
+  /* USER CODE BEGIN StartTask04 */
+  //Sensor initialization
+	strcpy(HumiditySensor.Sensor_name,"SHT31-ARP-B");
+	strcpy(HumiditySensor.Sensor_type,"Humidity:");
+	strcpy(HumiditySensor.Main_gas,"....");
+	HumiditySensor.Response_time=1;
+  /* Infinite loop */
+  for(;;)
+  {
+	HumiditySensor.Data=15.0;
+    osDelay(HumiditySensor.Response_time);
+  }
+  /* USER CODE END StartTask04 */
+}
+
+/* USER CODE BEGIN Header_StartTask05 */
+/**
+* @brief Function implementing the Task05 thread Absolute pressure sensor reading.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask05 */
+void StartTask05(void const * argument)
+{
+  /* USER CODE BEGIN StartTask05 */
+  //Sensor initialization
+	strcpy(PressureSensor.Sensor_name,"KP229-E2701-XTMA1");
+	strcpy(PressureSensor.Sensor_type,"Absolute pressure");
+	strcpy(PressureSensor.Main_gas,"....");
+	PressureSensor.Response_time=1;
+  /* Infinite loop */
+  for(;;)
+  {
+	PressureSensor.Data=15.0;
+    osDelay(PressureSensor.Response_time);
+  }
+  /* USER CODE END StartTask05 */
+}
+
 /* USER CODE END 4 */
 
-/* USER CODE BEGIN Header_StartTask01 */
+/* USER CODE BEGIN Header_StartTask01_I2C */
 /**
-  * @brief  Function implementing the Task01 thread.
+  * @brief  Function implementing the Task01_I2C thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartTask01 */
-void StartTask01(void const * argument)
+/* USER CODE END Header_StartTask01_I2C */
+void StartTask01_I2C(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
@@ -317,24 +489,6 @@ void StartTask01(void const * argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
-}
-
-/* USER CODE BEGIN Header_StartTask02 */
-/**
-* @brief Function implementing the TaskADCreading thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartTask02 */
-void StartTask02(void const * argument)
-{
-  /* USER CODE BEGIN StartTask02 */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartTask02 */
 }
 
 /**

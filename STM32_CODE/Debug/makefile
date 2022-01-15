@@ -53,6 +53,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 STM32_CODE.list \
 
+OBJCOPY_HEX += \
+STM32_CODE.hex \
+
 OBJCOPY_BIN += \
 STM32_CODE.bin \
 
@@ -79,6 +82,11 @@ STM32_CODE.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+STM32_CODE.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "STM32_CODE.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 STM32_CODE.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "STM32_CODE.bin"
 	@echo 'Finished building: $@'
@@ -86,10 +94,10 @@ STM32_CODE.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) STM32_CODE.bin STM32_CODE.elf STM32_CODE.list default.size.stdout
+	-$(RM) STM32_CODE.bin STM32_CODE.elf STM32_CODE.hex STM32_CODE.list default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

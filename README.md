@@ -5,7 +5,7 @@ This repository presents a solution for the NUXTU company, this will have the fo
    to development board					100%
 2. FreeRTOS implementation.				100%
 3. Configure the operating system to have 4 
-   tasks for reading the ambient sensors.		00%
+   tasks for reading the ambient sensors.		100%
 4. Configure the operating system to have N 
    tasks for reading the gas sensors.			00%
 5. ADC peripheral configuration				00%

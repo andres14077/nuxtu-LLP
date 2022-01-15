@@ -3067,3 +3067,533 @@
 2022-01-15 13:06:39,521 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1562mS.
 2022-01-15 13:06:39,521 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
 2022-01-15 13:06:39,527 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:42:37,959 [INFO] EditThreadDialog:699 - RAM SIZE (in KB): 40
+2022-01-15 14:42:37,960 [INFO] EditThreadDialog:701 - RAM SIZE (in words): 10240
+2022-01-15 14:42:41,876 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:42:41,877 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:42:41,877 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:42:41,877 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:42:41,877 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:42:41,877 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:42:45,573 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 588068192 Bytes (1073741824)
+2022-01-15 14:42:46,812 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 616906080 Bytes (1073741824)
+2022-01-15 14:42:47,827 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 666711392 Bytes (1073741824)
+2022-01-15 14:42:49,389 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:42:49,389 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:42:49,389 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:42:49,389 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:42:49,389 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:42:49,390 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:42:49,391 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:42:49,881 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:42:49,920 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:42:50,043 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 14:42:50,083 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 14:42:50,389 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:42:50,394 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:42:50,429 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:42:50,431 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:42:50,479 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:42:50,481 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:42:50,518 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:42:50,521 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:42:50,562 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:42:50,565 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:42:50,601 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:42:50,603 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:42:50,639 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:42:50,641 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:42:50,680 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:42:50,685 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:42:50,691 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:42:50,729 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:42:50,733 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:42:50,774 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:42:50,777 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:42:50,816 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:42:50,820 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:42:50,864 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:42:50,868 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:42:50,906 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:42:50,910 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:42:50,951 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:42:50,955 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:42:50,994 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:42:50,998 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:42:51,055 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:42:51,059 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:42:51,106 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:42:51,116 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:42:51,189 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:42:51,193 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:42:51,235 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:42:51,243 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:42:51,326 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:42:51,329 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:42:51,364 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:42:51,367 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:42:51,411 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:42:51,417 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:42:51,461 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:42:51,494 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:42:51,538 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:42:51,542 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:42:51,628 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:42:52,325 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 155mS.
+2022-01-15 14:42:52,330 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:42:52,624 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:42:53,881 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1551mS.
+2022-01-15 14:42:53,882 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:42:53,887 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:45:50,455 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 483474048 Bytes (1073741824)
+2022-01-15 14:45:52,115 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 512311936 Bytes (1073741824)
+2022-01-15 14:45:53,281 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 562643584 Bytes (1073741824)
+2022-01-15 14:45:55,040 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:45:55,041 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:45:55,041 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:45:55,041 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:45:55,041 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:45:55,041 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:45:55,042 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:45:55,536 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:45:55,576 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:45:55,714 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\gpio.c_save
+2022-01-15 14:45:55,754 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\gpio.c
+2022-01-15 14:45:55,761 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\gpio.h_save
+2022-01-15 14:45:55,799 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\gpio.h
+2022-01-15 14:45:56,111 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:45:56,115 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:45:56,158 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:45:56,160 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:45:56,198 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:45:56,201 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:45:56,239 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:45:56,241 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:45:56,279 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:45:56,281 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:45:56,317 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:45:56,319 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:45:56,356 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:45:56,359 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:45:56,395 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:45:56,400 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:45:56,406 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:45:56,444 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:45:56,447 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:45:56,486 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:45:56,490 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:45:56,530 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:45:56,534 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:45:56,575 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:45:56,579 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:45:56,618 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:45:56,622 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:45:56,662 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:45:56,665 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:45:56,721 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:45:56,725 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:45:56,781 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:45:56,784 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:45:56,855 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:45:56,881 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\i2c.c_save
+2022-01-15 14:45:56,953 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\i2c.c
+2022-01-15 14:45:56,956 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\i2c.h_save
+2022-01-15 14:45:56,994 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\i2c.h
+2022-01-15 14:45:57,003 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:45:57,055 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:45:57,059 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:45:57,100 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:45:57,108 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:45:57,167 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:45:57,170 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:45:57,207 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:45:57,210 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:45:57,253 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:45:57,260 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:45:57,303 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:45:57,334 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:45:57,382 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:45:57,385 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:45:57,455 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:45:58,140 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 151mS.
+2022-01-15 14:45:58,146 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:45:58,443 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:45:59,711 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1565mS.
+2022-01-15 14:45:59,712 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 1mS.
+2022-01-15 14:45:59,727 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:47:10,271 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 553991680 Bytes (1073741824)
+2022-01-15 14:47:11,419 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 582829568 Bytes (1073741824)
+2022-01-15 14:47:12,616 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 632634880 Bytes (1073741824)
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:47:14,481 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:47:14,482 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:47:14,861 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:47:14,896 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:47:14,991 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 14:47:15,028 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 14:47:15,377 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:47:15,382 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:47:15,417 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:47:15,419 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:47:15,493 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:47:15,496 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:47:15,531 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:47:15,533 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:47:15,572 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:47:15,575 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:47:15,612 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:47:15,614 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:47:15,655 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:47:15,657 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:47:15,694 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:47:15,699 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:47:15,705 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:47:15,745 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:47:15,749 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:47:15,788 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:47:15,792 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:47:15,831 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:47:15,835 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:47:15,877 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:47:15,880 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:47:15,920 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:47:15,925 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:47:15,965 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:47:15,969 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:47:16,009 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:47:16,013 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:47:16,068 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:47:16,072 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:47:16,121 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:47:16,132 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:47:16,188 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:47:16,191 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:47:16,232 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:47:16,240 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:47:16,303 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:47:16,305 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:47:16,341 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:47:16,344 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:47:16,387 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:47:16,394 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:47:16,436 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:47:16,466 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:47:16,511 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:47:16,515 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:47:16,616 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:47:17,262 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 151mS.
+2022-01-15 14:47:17,267 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:47:17,547 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:47:18,831 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1564mS.
+2022-01-15 14:47:18,832 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 1mS.
+2022-01-15 14:47:18,837 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:51:43,171 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:51:43,171 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:51:43,172 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:51:57,205 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 493660336 Bytes (1073741824)
+2022-01-15 14:51:59,133 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 522494128 Bytes (1073741824)
+2022-01-15 14:52:03,302 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 614768816 Bytes (1073741824)
+2022-01-15 14:52:04,910 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:52:04,910 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:52:04,910 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:52:04,910 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:52:04,910 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:52:04,911 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:52:04,912 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:52:05,387 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:52:05,425 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:52:05,533 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 14:52:05,570 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 14:52:05,874 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:52:05,879 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:52:05,914 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:52:05,916 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:52:05,953 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:52:05,955 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:52:05,992 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:52:05,995 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:52:06,034 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:52:06,037 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:52:06,074 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:52:06,078 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:52:06,117 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:52:06,119 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:52:06,155 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:52:06,160 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:52:06,167 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:52:06,204 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:52:06,208 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:52:06,247 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:52:06,251 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:52:06,290 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:52:06,294 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:52:06,336 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:52:06,340 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:52:06,380 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:52:06,383 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:52:06,422 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:52:06,426 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:52:06,464 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:52:06,468 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:52:06,538 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:52:06,542 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:52:06,592 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:52:06,603 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:52:06,678 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:52:06,681 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:52:06,723 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:52:06,731 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:52:06,795 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:52:06,798 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:52:06,833 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:52:06,837 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:52:06,880 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:52:06,887 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:52:06,930 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:52:06,962 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:52:07,006 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:52:07,010 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:52:07,095 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:52:07,787 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 154mS.
+2022-01-15 14:52:07,792 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:52:08,080 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:52:09,297 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1505mS.
+2022-01-15 14:52:09,298 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:52:09,303 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:53:28,634 [INFO] EditThreadDialog:699 - RAM SIZE (in KB): 40
+2022-01-15 14:53:28,635 [INFO] EditThreadDialog:701 - RAM SIZE (in words): 10240
+2022-01-15 14:53:42,412 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:53:42,412 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:53:42,412 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:53:42,412 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:53:42,412 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:53:42,412 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:53:46,263 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 567179328 Bytes (1073741824)
+2022-01-15 14:53:47,409 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 596013120 Bytes (1073741824)
+2022-01-15 14:53:48,798 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 645822528 Bytes (1073741824)
+2022-01-15 14:53:51,153 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:53:51,153 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:53:51,153 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:53:51,153 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:53:51,153 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:53:51,154 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:53:51,155 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:53:51,613 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:53:51,652 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:53:51,764 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 14:53:51,801 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 14:53:52,107 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:53:52,112 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:53:52,145 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:53:52,147 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:53:52,183 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:53:52,185 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:53:52,220 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:53:52,223 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:53:52,263 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:53:52,266 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:53:52,303 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:53:52,306 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:53:52,342 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:53:52,345 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:53:52,397 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:53:52,402 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:53:52,409 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:53:52,446 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:53:52,450 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:53:52,489 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:53:52,493 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:53:52,533 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:53:52,537 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:53:52,597 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:53:52,601 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:53:52,639 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:53:52,643 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:53:52,682 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:53:52,686 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:53:52,726 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:53:52,730 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:53:52,785 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:53:52,789 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:53:52,837 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:53:52,849 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:53:52,905 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:53:52,908 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:53:52,949 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:53:52,958 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:53:53,022 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:53:53,024 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:53:53,060 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:53:53,063 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:53:53,105 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:53:53,112 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:53:53,155 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:53:53,185 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:53:53,230 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:53:53,234 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:53:53,322 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:53:54,017 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 154mS.
+2022-01-15 14:53:54,022 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:53:54,306 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:53:55,523 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1501mS.
+2022-01-15 14:53:55,524 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 1mS.
+2022-01-15 14:53:55,530 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:54:32,034 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 14:54:32,034 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 14:54:32,034 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 14:54:34,007 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 509072064 Bytes (1073741824)
+2022-01-15 14:54:34,969 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 538432192 Bytes (1073741824)
+2022-01-15 14:54:36,519 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 631229120 Bytes (1073741824)
+2022-01-15 14:54:38,058 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 14:54:38,058 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 14:54:38,058 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 14:54:38,058 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 14:54:38,058 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 14:54:38,059 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 14:54:38,059 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 14:54:38,534 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 14:54:38,604 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 14:54:38,717 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 14:54:38,767 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 14:54:39,090 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:54:39,096 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:54:39,133 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:54:39,136 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:54:39,180 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:54:39,182 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:54:39,223 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:54:39,225 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:54:39,268 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:54:39,271 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:54:39,309 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:54:39,311 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:54:39,369 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:54:39,371 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:54:39,409 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:54:39,414 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 14:54:39,421 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 14:54:39,460 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 14:54:39,464 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 14:54:39,506 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 14:54:39,510 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 14:54:39,566 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 14:54:39,570 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 14:54:39,613 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 14:54:39,617 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 14:54:39,657 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 14:54:39,661 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 14:54:39,702 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 14:54:39,706 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 14:54:39,746 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 14:54:39,750 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 14:54:39,809 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 14:54:39,813 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 14:54:39,861 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 14:54:39,872 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 14:54:39,928 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 14:54:39,931 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 14:54:39,972 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 14:54:39,981 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 14:54:40,045 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 14:54:40,048 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 14:54:40,084 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 14:54:40,087 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 14:54:40,131 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 14:54:40,138 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 14:54:40,183 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 14:54:40,215 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 14:54:40,260 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 14:54:40,264 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 14:54:40,351 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 14:54:41,046 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 157mS.
+2022-01-15 14:54:41,050 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 14:54:41,346 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 14:54:42,559 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1509mS.
+2022-01-15 14:54:42,559 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 14:54:42,565 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 15:10:54,887 [INFO] EditThreadDialog:699 - RAM SIZE (in KB): 40
+2022-01-15 15:10:54,888 [INFO] EditThreadDialog:701 - RAM SIZE (in words): 10240
+2022-01-15 15:11:31,117 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 15:11:31,117 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 15:11:31,117 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 15:11:41,192 [INFO] EditThreadDialog:699 - RAM SIZE (in KB): 40
+2022-01-15 15:11:41,192 [INFO] EditThreadDialog:701 - RAM SIZE (in words): 10240
+2022-01-15 15:12:02,221 [INFO] TasksAndQueuesTab:752 - Dynamic
+2022-01-15 15:12:02,221 [WARN] TasksAndQueuesTab:758 - 128 128
+2022-01-15 15:12:02,221 [WARN] TasksAndQueuesTab:770 - max value is: 768.0
+2022-01-15 15:12:06,270 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 622097008 Bytes (1073741824)
+2022-01-15 15:12:07,686 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 651457136 Bytes (1073741824)
+2022-01-15 15:12:09,754 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 400595120 Bytes (1073741824)
+2022-01-15 15:12:11,257 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: FREERTOS
+2022-01-15 15:12:11,257 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2022-01-15 15:12:11,257 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2022-01-15 15:12:11,257 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: I2C
+2022-01-15 15:12:11,257 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2022-01-15 15:12:11,258 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2022-01-15 15:12:11,258 [INFO] CodeGenerator:663 - code generatio: config db path: D:\ST\STM32CubeIDE_1.8.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.4.0.202111222105\\db\
+2022-01-15 15:12:11,641 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp_save
+2022-01-15 15:12:11,677 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\license.tmp
+2022-01-15 15:12:11,774 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp_save
+2022-01-15 15:12:11,813 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\gpio.tmp
+2022-01-15 15:12:12,189 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 15:12:12,194 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 15:12:12,230 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 15:12:12,232 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 15:12:12,269 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 15:12:12,271 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 15:12:12,307 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 15:12:12,309 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 15:12:12,347 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 15:12:12,349 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 15:12:12,396 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 15:12:12,398 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 15:12:12,437 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 15:12:12,440 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 15:12:12,478 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 15:12:12,483 [INFO] Middleware:1388 - No code input for Bsp Dependency
+2022-01-15 15:12:12,489 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp_save
+2022-01-15 15:12:12,527 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_inc.tmp
+2022-01-15 15:12:12,530 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp_save
+2022-01-15 15:12:12,571 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_vars.tmp
+2022-01-15 15:12:12,575 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp_save
+2022-01-15 15:12:12,614 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_pfp.tmp
+2022-01-15 15:12:12,618 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp_save
+2022-01-15 15:12:12,660 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_obj_creat.tmp
+2022-01-15 15:12:12,664 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp_save
+2022-01-15 15:12:12,703 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_kernelStart.tmp
+2022-01-15 15:12:12,707 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp_save
+2022-01-15 15:12:12,747 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_default_thread.tmp
+2022-01-15 15:12:12,751 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp_save
+2022-01-15 15:12:12,792 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\rtos_threads.tmp
+2022-01-15 15:12:12,795 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h_save
+2022-01-15 15:12:12,853 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\FreeRTOSConfig.h
+2022-01-15 15:12:12,857 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c_save
+2022-01-15 15:12:12,909 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\freertos.c
+2022-01-15 15:12:12,920 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c_save
+2022-01-15 15:12:12,977 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_it.c
+2022-01-15 15:12:12,981 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h_save
+2022-01-15 15:12:13,022 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_it.h
+2022-01-15 15:12:13,031 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c_save
+2022-01-15 15:12:13,095 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_msp.c
+2022-01-15 15:12:13,098 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp_save
+2022-01-15 15:12:13,134 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\MXTmpFiles\system.tmp
+2022-01-15 15:12:13,137 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c_save
+2022-01-15 15:12:13,181 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\stm32f3xx_hal_timebase_tim.c
+2022-01-15 15:12:13,188 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h_save
+2022-01-15 15:12:13,231 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\stm32f3xx_hal_conf.h
+2022-01-15 15:12:13,262 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h_save
+2022-01-15 15:12:13,322 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Inc\main.h
+2022-01-15 15:12:13,326 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c_save
+2022-01-15 15:12:13,428 [INFO] CodeEngine:257 - Generated code: C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\Core\Src\main.c
+2022-01-15 15:12:14,066 [INFO] ProjectBuilder:2589 - Time for Copy HAL[1] : 154mS.
+2022-01-15 15:12:14,071 [INFO] ProjectBuilder:3665 - Project Generator version: 3.15.2
+2022-01-15 15:12:14,349 [INFO] ConfigFileManager:1273 - The Die is : DIE422
+2022-01-15 15:12:15,657 [INFO] ProjectBuilder:3832 - Time for Generating toolchain IDE Files: 1586mS.
+2022-01-15 15:12:15,658 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 15:12:15,664 [INFO] ProjectBuilder:2461 - Time for Copy CMSIS : 0mS.
+2022-01-15 17:15:19,897 [INFO] I2cTimingTraitement:325 - 0x2000090E
+2022-01-15 17:15:19,910 [INFO] I2cTimingTraitement:325 - 0x2000090E
