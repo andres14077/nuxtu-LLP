@@ -79,15 +79,100 @@ void HAL_MspInit(void)
 }
 
 /**
-* @brief I2C MSP Initialization
+* @brief ADC MSP Initialization
 * This function configures the hardware resources used in this example
-* @param hi2c: I2C handle pointer
+* @param hadc: ADC handle pointer
 * @retval None
 */
-void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hi2c->Instance==I2C1)
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspInit 0 */
+
+  /* USER CODE END ADC1_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_ADC12_CLK_ENABLE();
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    /**ADC1 GPIO Configuration
+    PC0     ------> ADC1_IN6
+    PA1     ------> ADC1_IN2
+    PA2     ------> ADC1_IN3
+    PA3     ------> ADC1_IN4
+    PF4     ------> ADC1_IN5
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_4;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN ADC1_MspInit 1 */
+
+  /* USER CODE END ADC1_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief ADC MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hadc: ADC handle pointer
+* @retval None
+*/
+void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
+{
+  if(hadc->Instance==ADC1)
+  {
+  /* USER CODE BEGIN ADC1_MspDeInit 0 */
+
+  /* USER CODE END ADC1_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_ADC12_CLK_DISABLE();
+
+    /**ADC1 GPIO Configuration
+    PC0     ------> ADC1_IN6
+    PA1     ------> ADC1_IN2
+    PA2     ------> ADC1_IN3
+    PA3     ------> ADC1_IN4
+    PF4     ------> ADC1_IN5
+    */
+    HAL_GPIO_DeInit(GPIOC, GPIO_PIN_0);
+
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3);
+
+    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_4);
+
+  /* USER CODE BEGIN ADC1_MspDeInit 1 */
+
+  /* USER CODE END ADC1_MspDeInit 1 */
+  }
+
+}
+
+/**
+* @brief SMBUS MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hsmbus: SMBUS handle pointer
+* @retval None
+*/
+void HAL_SMBUS_MspInit(SMBUS_HandleTypeDef* hsmbus)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hsmbus->Instance==I2C1)
   {
   /* USER CODE BEGIN I2C1_MspInit 0 */
 
@@ -118,14 +203,14 @@ void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c)
 }
 
 /**
-* @brief I2C MSP De-Initialization
+* @brief SMBUS MSP De-Initialization
 * This function freeze the hardware resources used in this example
-* @param hi2c: I2C handle pointer
+* @param hsmbus: SMBUS handle pointer
 * @retval None
 */
-void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c)
+void HAL_SMBUS_MspDeInit(SMBUS_HandleTypeDef* hsmbus)
 {
-  if(hi2c->Instance==I2C1)
+  if(hsmbus->Instance==I2C1)
   {
   /* USER CODE BEGIN I2C1_MspDeInit 0 */
 

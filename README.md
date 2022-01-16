@@ -11,3 +11,5 @@ This repository presents a solution for the NUXTU company, this will have the fo
 5. ADC peripheral configuration				00%
 6. I2C peripheral configuration				00%
 7. Create I2C slave functions				00%
+
+
