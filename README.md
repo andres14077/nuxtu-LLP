@@ -7,9 +7,11 @@ This repository presents a solution for the NUXTU company, this will have the fo
 3. Configure the operating system to have 4 
    tasks for reading the ambient sensors.		100%
 4. Configure the operating system to have N 
-   tasks for reading the gas sensors.			00%
-5. ADC peripheral configuration				00%
-6. I2C peripheral configuration				00%
+   tasks for reading the gas sensors.			40%
+5. ADC peripheral configuration				70%
+6. I2C peripheral configuration				40%
 7. Create I2C slave functions				00%
+
+
 
 

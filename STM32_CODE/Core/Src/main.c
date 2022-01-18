@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include<stdbool.h>
+#include <stdbool.h>
 #include <string.h>
 /* USER CODE END Includes */
 
@@ -34,6 +34,7 @@
  * Sensor type: Current sensor technology type as string.
  * Main gas: Current sensor main response gas as string.
  * Response time: Current sensor response time (t90) in seconds.
+ * Channel: ADC channel
  */
 typedef struct Sensor{
   char Sensor_name[11];
@@ -41,6 +42,7 @@ typedef struct Sensor{
   char Main_gas[20];
   int16_t Response_time;
   float Data;
+  uint32_t channel;
 } Sensor;
 /**
  * Structure with the information of PCB
@@ -62,7 +64,7 @@ typedef struct PCB{
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-
+//PCB configuration
 #define temperature_degC 1
 #define temperaturePCB_degC 1
 #define humidity_percent 1
@@ -72,6 +74,67 @@ typedef struct PCB{
 #define Numberofsensors 2
 #define Manufacturingdate "dd/mm/yyyy"
 
+
+//Sensor 01 parameters
+#define Sensor01_name			"xxx1"
+#define Sensor01_type			"fire"
+#define Sensor01_Main_gas		"azufre"
+#define Sensor01_Response_time	10
+#define Sensor01_ADC_Channel	ADC_CHANNEL_6
+//Sensor 02 parameters
+#define Sensor02_name			"xxx1"
+#define Sensor02_type			"fire"
+#define Sensor02_Main_gas		"azufre"
+#define Sensor02_Response_time	10
+#define Sensor02_ADC_Channel	ADC_CHANNEL_6
+//Sensor 03 parameters
+#define Sensor03_name			"xxx1"
+#define Sensor03_type			"fire"
+#define Sensor03_Main_gas		"azufre"
+#define Sensor03_Response_time	10
+#define Sensor03_ADC_Channel	ADC_CHANNEL_6
+//Sensor 04 parameters
+#define Sensor04_name			"xxx1"
+#define Sensor04_type			"fire"
+#define Sensor04_Main_gas		"azufre"
+#define Sensor04_Response_time	10
+#define Sensor04_ADC_Channel	ADC_CHANNEL_6
+//Sensor 05 parameters
+#define Sensor05_name			"xxx1"
+#define Sensor05_type			"fire"
+#define Sensor05_Main_gas		"azufre"
+#define Sensor05_Response_time	10
+#define Sensor01_ADC_Channel	ADC_CHANNEL_6
+//Sensor 06 parameters
+#define Sensor06_name			"xxx1"
+#define Sensor06_type			"fire"
+#define Sensor06_Main_gas		"azufre"
+#define Sensor06_Response_time	10
+#define Sensor06_ADC_Channel	ADC_CHANNEL_6
+//Sensor 07 parameters
+#define Sensor07_name			"xxx1"
+#define Sensor07_type			"fire"
+#define Sensor07_Main_gas		"azufre"
+#define Sensor07_Response_time	10
+#define Sensor07_ADC_Channel	ADC_CHANNEL_6
+//Sensor 08 parameters
+#define Sensor08_name			"xxx1"
+#define Sensor08_type			"fire"
+#define Sensor08_Main_gas		"azufre"
+#define Sensor08_Response_time	10
+#define Sensor08_ADC_Channel	ADC_CHANNEL_6
+//Sensor 09 parameters
+#define Sensor09_name			"xxx1"
+#define Sensor09_type			"fire"
+#define Sensor09_Main_gas		"azufre"
+#define Sensor09_Response_time	10
+#define Sensor09_ADC_Channel	ADC_CHANNEL_6
+//Sensor 10 parameters
+#define Sensor10_name			"xxx1"
+#define Sensor10_type			"fire"
+#define Sensor10_Main_gas		"azufre"
+#define Sensor10_Response_time	10
+#define Sensor10_ADC_Channel	ADC_CHANNEL_6
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -84,21 +147,40 @@ ADC_HandleTypeDef hadc1;
 
 SMBUS_HandleTypeDef hsmbus1;
 
+PCD_HandleTypeDef hpcd_USB_FS;
+
 osThreadId Task01_I2CHandle;
 osThreadId IDLEHandle;
 osMutexId MutexADC1Handle;
+osSemaphoreId SemI2CHandle;
 /* USER CODE BEGIN PV */
+
+
+ADC_ChannelConfTypeDef sConfig2 = {0};
 //Definition of atmospheric data sensors
 Sensor ExternalTemperatureSensor;
 Sensor InternalTemperatureSensor;
 Sensor HumiditySensor;
 Sensor PressureSensor;
 
+Sensor MatrizSensor[Numberofsensors];
+
 //Definition of tasks for atmospheric data sensors
 osThreadId Task02Handle;
 osThreadId Task03Handle;
 osThreadId Task04Handle;
 osThreadId Task05Handle;
+//Definition of N task for sensors
+osThreadId TaskN01Handle;
+osThreadId TaskN02Handle;
+osThreadId TaskN03Handle;
+osThreadId TaskN04Handle;
+osThreadId TaskN05Handle;
+osThreadId TaskN06Handle;
+osThreadId TaskN07Handle;
+osThreadId TaskN08Handle;
+osThreadId TaskN09Handle;
+osThreadId TaskN10Handle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -106,6 +188,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_SMBUS_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_USB_PCD_Init(void);
 void StartTask01_I2C(void const * argument);
 void StartTaskIDLE(void const * argument);
 
@@ -114,6 +197,7 @@ void StartTask02(void const * argument);
 void StartTask03(void const * argument);
 void StartTask04(void const * argument);
 void StartTask05(void const * argument);
+void StartTaskN(void const * argument);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -151,8 +235,14 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_SMBUS_Init();
   MX_ADC1_Init();
+  MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+  //preconfigure the ADC to change channels
+	sConfig2.Rank = ADC_REGULAR_RANK_1;
+	sConfig2.SingleDiff = ADC_SINGLE_ENDED;
+	sConfig2.SamplingTime = ADC_SAMPLETIME_61CYCLES_5;
+	sConfig2.OffsetNumber = ADC_OFFSET_NONE;
+	sConfig2.Offset = 0;
   // PCB data initialization
   PCB pcb;
   pcb.PCBUniqueID=PCBuniqueID;
@@ -171,6 +261,11 @@ int main(void)
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* definition and creation of SemI2C */
+  osSemaphoreDef(SemI2C);
+  SemI2CHandle = osSemaphoreCreate(osSemaphore(SemI2C), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -191,7 +286,7 @@ int main(void)
 
   /* definition and creation of IDLE */
   osThreadDef(IDLE, StartTaskIDLE, osPriorityIdle, 0, 128);
-  IDLEHandle = osThreadCreate(osThread(IDLE), NULL);
+  IDLEHandle = osThreadCreate(osThread(IDLE), (void*) "hola");
 
   /* USER CODE BEGIN RTOS_THREADS */
 
@@ -214,6 +309,26 @@ int main(void)
   if(absolutePressure_kPa){
 	osThreadDef(Task05, StartTask05, osPriorityNormal, 0, 128);
 	Task05Handle = osThreadCreate(osThread(Task05), NULL);
+  }
+  /* definition and creation of TaskN01 */
+  //Sensor initialization
+  	strcpy(MatrizSensor[0].Sensor_name,Sensor01_name);
+  	strcpy(MatrizSensor[0].Sensor_type,Sensor01_type);
+  	strcpy(MatrizSensor[0].Main_gas,Sensor01_Main_gas);
+  	MatrizSensor[0].Response_time=Sensor01_Response_time;
+  	MatrizSensor[0].channel=Sensor01_ADC_Channel;
+	osThreadDef(TaskN01, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN01Handle = osThreadCreate(osThread(TaskN01), (void*) 0);
+  /* definition and creation of TaskN02 */
+  if(Numberofsensors>1){
+	//Sensor initialization
+	strcpy(MatrizSensor[1].Sensor_name,Sensor02_name);
+	strcpy(MatrizSensor[1].Sensor_type,Sensor02_type);
+	strcpy(MatrizSensor[1].Main_gas,Sensor02_Main_gas);
+	MatrizSensor[1].Response_time=Sensor02_Response_time;
+	MatrizSensor[1].channel=Sensor02_ADC_Channel;
+	osThreadDef(TaskN02, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN02Handle = osThreadCreate(osThread(TaskN02), (void*) 1);
   }
   /* USER CODE END RTOS_THREADS */
 
@@ -270,9 +385,11 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_I2C1|RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USB|RCC_PERIPHCLK_I2C1
+                              |RCC_PERIPHCLK_ADC12;
   PeriphClkInit.Adc12ClockSelection = RCC_ADC12PLLCLK_DIV1;
   PeriphClkInit.I2c1ClockSelection = RCC_I2C1CLKSOURCE_HSI;
+  PeriphClkInit.USBClockSelection = RCC_USBCLKSOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -329,7 +446,7 @@ static void MX_ADC1_Init(void)
   sConfig.Channel = ADC_CHANNEL_2;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
-  sConfig.SamplingTime = ADC_SAMPLETIME_4CYCLES_5;
+  sConfig.SamplingTime = ADC_SAMPLETIME_61CYCLES_5;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
@@ -377,6 +494,37 @@ static void MX_I2C1_SMBUS_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief USB Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_PCD_Init(void)
+{
+
+  /* USER CODE BEGIN USB_Init 0 */
+
+  /* USER CODE END USB_Init 0 */
+
+  /* USER CODE BEGIN USB_Init 1 */
+
+  /* USER CODE END USB_Init 1 */
+  hpcd_USB_FS.Instance = USB;
+  hpcd_USB_FS.Init.dev_endpoints = 8;
+  hpcd_USB_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_FS.Init.phy_itface = PCD_PHY_EMBEDDED;
+  hpcd_USB_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_FS.Init.battery_charging_enable = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_Init 2 */
+
+  /* USER CODE END USB_Init 2 */
 
 }
 
@@ -434,14 +582,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : DM_Pin DP_Pin */
-  GPIO_InitStruct.Pin = DM_Pin|DP_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF14_USB;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 /* USER CODE BEGIN 4 */
@@ -467,8 +607,16 @@ void StartTask02(void const * argument)
   {
 	/*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
 	osMutexWait(MutexADC1Handle, 100);
-	assert_param(IS_ADC_CHANNEL(ADC_CHANNEL_2));
+	sConfig2.Channel=ADC_CHANNEL_2;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
+	// Start ADC Conversion
+	HAL_ADC_Start(&hadc1);
+	// Poll ADC1 Perihperal & TimeOut = 1mSec
+	HAL_ADC_PollForConversion(&hadc1, 1);
+	// Read The ADC Conversion Result
 	uint32_t Vadc=HAL_ADC_GetValue(&hadc1);
+	// stop The ADC
+	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The temperature formula is T=-66.875 + 218.75*Vt/Vd
 	//where Vd=3.3, Vt=adc*3.3/2^12
@@ -499,12 +647,20 @@ void StartTask03(void const * argument)
   {
     /*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
 	osMutexWait(MutexADC1Handle, 100);
-	assert_param(IS_ADC_CHANNEL(ADC_CHANNEL_TEMPSENSOR));
+	sConfig2.Channel=ADC_CHANNEL_TEMPSENSOR;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
+	// Start ADC Conversion
+	HAL_ADC_Start(&hadc1);
+	// Poll ADC1 Perihperal & TimeOut = 1mSec
+	HAL_ADC_PollForConversion(&hadc1, 1);
+	// Read The ADC Conversion Result
 	uint32_t Vadc=HAL_ADC_GetValue(&hadc1);
+	// stop The ADC
+	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The formula is Temperature (in °C) = {(V25 – Vadc) / Avg_Slope} + 25
-	//where V25=1.43, Avg_Slope=4.3
-	InternalTemperatureSensor.Data=((1.43 - Vadc) / 4.3) + 25;
+	//where V25=1.43, Avg_Slope=4.3, Vadc=adc*3.3/4096
+	InternalTemperatureSensor.Data=((1.43 - (805.6640625e-6 * Vadc)) / 4.3) + 25;
     osDelay(InternalTemperatureSensor.Response_time);
   }
   /* USER CODE END StartTask03 */
@@ -530,8 +686,16 @@ void StartTask04(void const * argument)
   {
     /*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
 	osMutexWait(MutexADC1Handle, 100);
-	assert_param(IS_ADC_CHANNEL(ADC_CHANNEL_3));
+	sConfig2.Channel=ADC_CHANNEL_3;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
+	// Start ADC Conversion
+	HAL_ADC_Start(&hadc1);
+	// Poll ADC1 Perihperal & TimeOut = 1mSec
+	HAL_ADC_PollForConversion(&hadc1, 1);
+	// Read The ADC Conversion Result
 	uint32_t Vadc=HAL_ADC_GetValue(&hadc1);
+	// stop The ADC
+	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The temperature formula is Rh=-12.5 + 125*Vt/Vd
 	//where Vd=3.3, Vt=adc*3.3/2^12
@@ -562,8 +726,16 @@ void StartTask05(void const * argument)
   {
     /*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
 	osMutexWait(MutexADC1Handle, 100);
-	assert_param(IS_ADC_CHANNEL(ADC_CHANNEL_4));
+	sConfig2.Channel=ADC_CHANNEL_4;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
+	// Start ADC Conversion
+	HAL_ADC_Start(&hadc1);
+	// Poll ADC1 Perihperal & TimeOut = 1mSec
+	HAL_ADC_PollForConversion(&hadc1, 1);
+	// Read The ADC Conversion Result
 	uint32_t Vadc=HAL_ADC_GetValue(&hadc1);
+	// stop The ADC
+	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The temperature formula is P=(Vp/Vdd-b)/a
 	//where Vp=adc*3.3/2^12, Vdd=3.3, b=0.05069, a=0.00293.
@@ -572,6 +744,40 @@ void StartTask05(void const * argument)
     osDelay(PressureSensor.Response_time);
   }
   /* USER CODE END StartTask05 */
+}
+/* USER CODE BEGIN Header_StartTaskN */
+/**
+* @brief Function implementing the TaskN thread of gas sensor reading.
+* @param argument: used Sensor_number
+*
+* @retval None
+*/
+/* USER CODE END Header_StartTaskN */
+void StartTaskN(void const * argument)
+{
+  /* USER CODE BEGIN StartTaskN */
+
+  /* Infinite loop */
+  for(;;)
+  {
+    /*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
+	osMutexWait(MutexADC1Handle, 100);
+	sConfig2.Channel=MatrizSensor[(int)argument].channel;
+	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
+	// Start ADC Conversion
+	HAL_ADC_Start(&hadc1);
+	// Poll ADC1 Perihperal & TimeOut = 1mSec
+	HAL_ADC_PollForConversion(&hadc1, 1);
+	// Read The ADC Conversion Result
+	uint32_t Vadc=HAL_ADC_GetValue(&hadc1);
+	// stop The ADC
+	HAL_ADC_Stop(&hadc1);
+	osMutexRelease(MutexADC1Handle);
+	//The voltage value in miliVolts is Vadc=adc*3300/4096
+	MatrizSensor[(int)argument].Data=805.6640625e-3*Vadc;
+    osDelay(MatrizSensor[(int)argument].Response_time*1000);
+  }
+  /* USER CODE END StartTaskN*/
 }
 
 /* USER CODE END 4 */

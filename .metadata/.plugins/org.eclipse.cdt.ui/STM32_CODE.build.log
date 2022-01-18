@@ -1,10 +1,23 @@
-15:37:32 **** Incremental Build of configuration Debug for project STM32_CODE ****
+22:43:45 **** Incremental Build of configuration Debug for project STM32_CODE ****
 make -j6 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xC -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "STM32_CODE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Usuario\Desktop\nuxtu-LLP\STM32_CODE\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_CODE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32_CODE.elf
+ 
 arm-none-eabi-size   STM32_CODE.elf 
+arm-none-eabi-objdump -h -S  STM32_CODE.elf  > "STM32_CODE.list"
+arm-none-eabi-objcopy  -O ihex  STM32_CODE.elf  "STM32_CODE.hex"
+arm-none-eabi-objcopy  -O binary  STM32_CODE.elf  "STM32_CODE.bin"
    text	   data	    bss	    dec	    hex	filename
-  31400	     24	   6040	  37464	   9258	STM32_CODE.elf
+  34816	     24	   6984	  41824	   a360	STM32_CODE.elf
 Finished building: default.size.stdout
  
+Finished building: STM32_CODE.bin
+Finished building: STM32_CODE.hex
+ 
+ 
+Finished building: STM32_CODE.list
+ 
 
-15:37:32 Build Finished. 0 errors, 0 warnings. (took 369ms)
+22:43:46 Build Finished. 0 errors, 0 warnings. (took 1s.64ms)
 
