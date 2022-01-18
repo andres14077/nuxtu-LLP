@@ -104,7 +104,7 @@ typedef struct PCB{
 #define Sensor05_type			"fire"
 #define Sensor05_Main_gas		"azufre"
 #define Sensor05_Response_time	10
-#define Sensor01_ADC_Channel	ADC_CHANNEL_6
+#define Sensor05_ADC_Channel	ADC_CHANNEL_6
 //Sensor 06 parameters
 #define Sensor06_name			"xxx1"
 #define Sensor06_type			"fire"
@@ -150,7 +150,6 @@ SMBUS_HandleTypeDef hsmbus1;
 PCD_HandleTypeDef hpcd_USB_FS;
 
 osThreadId Task01_I2CHandle;
-osThreadId IDLEHandle;
 osMutexId MutexADC1Handle;
 osSemaphoreId SemI2CHandle;
 /* USER CODE BEGIN PV */
@@ -190,7 +189,6 @@ static void MX_I2C1_SMBUS_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USB_PCD_Init(void);
 void StartTask01_I2C(void const * argument);
-void StartTaskIDLE(void const * argument);
 
 /* USER CODE BEGIN PFP */
 void StartTask02(void const * argument);
@@ -284,10 +282,6 @@ int main(void)
   osThreadDef(Task01_I2C, StartTask01_I2C, osPriorityRealtime, 0, 128);
   Task01_I2CHandle = osThreadCreate(osThread(Task01_I2C), NULL);
 
-  /* definition and creation of IDLE */
-  osThreadDef(IDLE, StartTaskIDLE, osPriorityIdle, 0, 128);
-  IDLEHandle = osThreadCreate(osThread(IDLE), (void*) "hola");
-
   /* USER CODE BEGIN RTOS_THREADS */
 
   /* definition and creation of Task02 */
@@ -310,6 +304,8 @@ int main(void)
 	osThreadDef(Task05, StartTask05, osPriorityNormal, 0, 128);
 	Task05Handle = osThreadCreate(osThread(Task05), NULL);
   }
+
+
   /* definition and creation of TaskN01 */
   //Sensor initialization
   	strcpy(MatrizSensor[0].Sensor_name,Sensor01_name);
@@ -330,6 +326,95 @@ int main(void)
 	osThreadDef(TaskN02, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN02Handle = osThreadCreate(osThread(TaskN02), (void*) 1);
   }
+  /* definition and creation of TaskN03 */
+  if(Numberofsensors>2){
+  	//Sensor initialization
+  	strcpy(MatrizSensor[2].Sensor_name,Sensor03_name);
+  	strcpy(MatrizSensor[2].Sensor_type,Sensor03_type);
+  	strcpy(MatrizSensor[2].Main_gas,Sensor03_Main_gas);
+  	MatrizSensor[2].Response_time=Sensor03_Response_time;
+  	MatrizSensor[2].channel=Sensor03_ADC_Channel;
+  	osThreadDef(TaskN03, StartTaskN, osPriorityNormal, 0, 128);
+  	TaskN03Handle = osThreadCreate(osThread(TaskN03), (void*) 2);
+  }
+  /* definition and creation of TaskN04 */
+  if(Numberofsensors>3){
+  	//Sensor initialization
+  	strcpy(MatrizSensor[3].Sensor_name,Sensor04_name);
+  	strcpy(MatrizSensor[3].Sensor_type,Sensor04_type);
+  	strcpy(MatrizSensor[3].Main_gas,Sensor04_Main_gas);
+  	MatrizSensor[3].Response_time=Sensor04_Response_time;
+  	MatrizSensor[3].channel=Sensor04_ADC_Channel;
+  	osThreadDef(TaskN04, StartTaskN, osPriorityNormal, 0, 128);
+  	TaskN04Handle = osThreadCreate(osThread(TaskN04), (void*) 3);
+  }
+  /* definition and creation of TaskN05 */
+  if(Numberofsensors>4){
+	//Sensor initialization
+	strcpy(MatrizSensor[4].Sensor_name,Sensor05_name);
+	strcpy(MatrizSensor[4].Sensor_type,Sensor05_type);
+	strcpy(MatrizSensor[4].Main_gas,Sensor05_Main_gas);
+	MatrizSensor[4].Response_time=Sensor05_Response_time;
+	MatrizSensor[4].channel=Sensor05_ADC_Channel;
+	osThreadDef(TaskN05, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN05Handle = osThreadCreate(osThread(TaskN05), (void*) 4);
+  }
+  /* definition and creation of TaskN06 */
+  if(Numberofsensors>5){
+	//Sensor initialization
+	strcpy(MatrizSensor[5].Sensor_name,Sensor06_name);
+	strcpy(MatrizSensor[5].Sensor_type,Sensor06_type);
+	strcpy(MatrizSensor[5].Main_gas,Sensor06_Main_gas);
+	MatrizSensor[5].Response_time=Sensor06_Response_time;
+	MatrizSensor[5].channel=Sensor06_ADC_Channel;
+	osThreadDef(TaskN06, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN06Handle = osThreadCreate(osThread(TaskN06), (void*) 5);
+  }
+  /* definition and creation of TaskN07 */
+  if(Numberofsensors>6){
+	//Sensor initialization
+	strcpy(MatrizSensor[6].Sensor_name,Sensor07_name);
+	strcpy(MatrizSensor[6].Sensor_type,Sensor07_type);
+	strcpy(MatrizSensor[6].Main_gas,Sensor07_Main_gas);
+	MatrizSensor[6].Response_time=Sensor07_Response_time;
+	MatrizSensor[6].channel=Sensor07_ADC_Channel;
+	osThreadDef(TaskN07, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN07Handle = osThreadCreate(osThread(TaskN07), (void*) 6);
+  }
+  /* definition and creation of TaskN08 */
+  if(Numberofsensors>7){
+  //Sensor initialization
+	strcpy(MatrizSensor[7].Sensor_name,Sensor08_name);
+	strcpy(MatrizSensor[7].Sensor_type,Sensor08_type);
+	strcpy(MatrizSensor[7].Main_gas,Sensor08_Main_gas);
+	MatrizSensor[7].Response_time=Sensor08_Response_time;
+	MatrizSensor[7].channel=Sensor08_ADC_Channel;
+	osThreadDef(TaskN08, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN08Handle = osThreadCreate(osThread(TaskN08), (void*) 7);
+  }
+  /* definition and creation of TaskN09 */
+  if(Numberofsensors>8){
+	//Sensor initialization
+	strcpy(MatrizSensor[8].Sensor_name,Sensor09_name);
+	strcpy(MatrizSensor[8].Sensor_type,Sensor09_type);
+	strcpy(MatrizSensor[8].Main_gas,Sensor09_Main_gas);
+	MatrizSensor[8].Response_time=Sensor09_Response_time;
+	MatrizSensor[8].channel=Sensor09_ADC_Channel;
+	osThreadDef(TaskN09, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN09Handle = osThreadCreate(osThread(TaskN09), (void*) 8);
+  }
+  /* definition and creation of TaskN10 */
+  if(Numberofsensors>9){
+	//Sensor initialization
+	strcpy(MatrizSensor[9].Sensor_name,Sensor10_name);
+	strcpy(MatrizSensor[9].Sensor_type,Sensor10_type);
+	strcpy(MatrizSensor[9].Main_gas,Sensor10_Main_gas);
+	MatrizSensor[9].Response_time=Sensor10_Response_time;
+	MatrizSensor[9].channel=Sensor10_ADC_Channel;
+	osThreadDef(TaskN10, StartTaskN, osPriorityNormal, 0, 128);
+	TaskN10Handle = osThreadCreate(osThread(TaskN10), (void*) 9);
+  }
+
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -795,28 +880,11 @@ void StartTask01_I2C(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+    osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartTaskIDLE */
-/**
-* @brief Function implementing the IDLE thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_StartTaskIDLE */
-void StartTaskIDLE(void const * argument)
-{
-  /* USER CODE BEGIN StartTaskIDLE */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartTaskIDLE */
-}
 
 /**
   * @brief  Period elapsed callback in non blocking mode
