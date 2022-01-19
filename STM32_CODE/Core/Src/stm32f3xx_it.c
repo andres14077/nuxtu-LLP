@@ -22,6 +22,7 @@
 #include "stm32f3xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmsis_os.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,11 +56,11 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern SMBUS_HandleTypeDef hsmbus1;
+extern I2C_HandleTypeDef hi2c1;
 extern TIM_HandleTypeDef htim6;
 
 /* USER CODE BEGIN EV */
-
+extern osSemaphoreId SemI2CHandle;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -166,9 +167,11 @@ void DebugMon_Handler(void)
 void I2C1_EV_IRQHandler(void)
 {
   /* USER CODE BEGIN I2C1_EV_IRQn 0 */
-
+	if(HAL_I2C_GetState(&hi2c1) == HAL_I2C_STATE_READY){
+		osSemaphoreRelease(SemI2CHandle);
+	}
   /* USER CODE END I2C1_EV_IRQn 0 */
-  HAL_SMBUS_EV_IRQHandler(&hsmbus1);
+  HAL_I2C_EV_IRQHandler(&hi2c1);
   /* USER CODE BEGIN I2C1_EV_IRQn 1 */
 
   /* USER CODE END I2C1_EV_IRQn 1 */

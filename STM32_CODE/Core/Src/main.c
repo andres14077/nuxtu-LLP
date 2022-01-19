@@ -71,7 +71,7 @@ typedef struct PCB{
 #define absolutePressure_kPa 1
 
 #define PCBuniqueID 40
-#define Numberofsensors 2
+#define Numberofsensors 4
 #define Manufacturingdate "dd/mm/yyyy"
 
 
@@ -145,7 +145,7 @@ typedef struct PCB{
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 
-SMBUS_HandleTypeDef hsmbus1;
+I2C_HandleTypeDef hi2c1;
 
 PCD_HandleTypeDef hpcd_USB_FS;
 
@@ -154,7 +154,7 @@ osMutexId MutexADC1Handle;
 osSemaphoreId SemI2CHandle;
 /* USER CODE BEGIN PV */
 
-
+PCB pcb;
 ADC_ChannelConfTypeDef sConfig2 = {0};
 //Definition of atmospheric data sensors
 Sensor ExternalTemperatureSensor;
@@ -185,7 +185,7 @@ osThreadId TaskN10Handle;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_I2C1_SMBUS_Init(void);
+static void MX_I2C1_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USB_PCD_Init(void);
 void StartTask01_I2C(void const * argument);
@@ -231,7 +231,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_SMBUS_Init();
+  MX_I2C1_Init();
   MX_ADC1_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
@@ -242,7 +242,6 @@ int main(void)
 	sConfig2.OffsetNumber = ADC_OFFSET_NONE;
 	sConfig2.Offset = 0;
   // PCB data initialization
-  PCB pcb;
   pcb.PCBUniqueID=PCBuniqueID;
   pcb.NumberOfSensors=Numberofsensors;
   strcpy(pcb.ManufacturingDate,Manufacturingdate);
@@ -285,25 +284,25 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
 
   /* definition and creation of Task02 */
-  if(temperature_degC){
+#if(temperature_degC==1)
 	osThreadDef(Task02, StartTask02, osPriorityNormal, 0, 128);
 	Task02Handle = osThreadCreate(osThread(Task02), NULL);
-  }
+#endif
   /* definition and creation of Task03 */
-  if(temperaturePCB_degC){
+#if(temperaturePCB_degC==1)
 	osThreadDef(Task03, StartTask03, osPriorityNormal, 0, 128);
 	Task03Handle = osThreadCreate(osThread(Task03), NULL);
-  }
+#endif
   /* definition and creation of Task04 */
-  if(humidity_percent){
+#if(humidity_percent==1)
 	osThreadDef(Task04, StartTask04, osPriorityNormal, 0, 128);
 	Task04Handle = osThreadCreate(osThread(Task04), NULL);
-  }
+#endif
   /* definition and creation of Task05 */
-  if(absolutePressure_kPa){
+#if(absolutePressure_kPa==1)
 	osThreadDef(Task05, StartTask05, osPriorityNormal, 0, 128);
 	Task05Handle = osThreadCreate(osThread(Task05), NULL);
-  }
+#endif
 
 
   /* definition and creation of TaskN01 */
@@ -316,7 +315,7 @@ int main(void)
 	osThreadDef(TaskN01, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN01Handle = osThreadCreate(osThread(TaskN01), (void*) 0);
   /* definition and creation of TaskN02 */
-  if(Numberofsensors>1){
+#if(Numberofsensors>1)
 	//Sensor initialization
 	strcpy(MatrizSensor[1].Sensor_name,Sensor02_name);
 	strcpy(MatrizSensor[1].Sensor_type,Sensor02_type);
@@ -325,9 +324,9 @@ int main(void)
 	MatrizSensor[1].channel=Sensor02_ADC_Channel;
 	osThreadDef(TaskN02, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN02Handle = osThreadCreate(osThread(TaskN02), (void*) 1);
-  }
+#endif
   /* definition and creation of TaskN03 */
-  if(Numberofsensors>2){
+#if(Numberofsensors>2)
   	//Sensor initialization
   	strcpy(MatrizSensor[2].Sensor_name,Sensor03_name);
   	strcpy(MatrizSensor[2].Sensor_type,Sensor03_type);
@@ -336,9 +335,9 @@ int main(void)
   	MatrizSensor[2].channel=Sensor03_ADC_Channel;
   	osThreadDef(TaskN03, StartTaskN, osPriorityNormal, 0, 128);
   	TaskN03Handle = osThreadCreate(osThread(TaskN03), (void*) 2);
-  }
+#endif
   /* definition and creation of TaskN04 */
-  if(Numberofsensors>3){
+#if(Numberofsensors>3)
   	//Sensor initialization
   	strcpy(MatrizSensor[3].Sensor_name,Sensor04_name);
   	strcpy(MatrizSensor[3].Sensor_type,Sensor04_type);
@@ -347,9 +346,9 @@ int main(void)
   	MatrizSensor[3].channel=Sensor04_ADC_Channel;
   	osThreadDef(TaskN04, StartTaskN, osPriorityNormal, 0, 128);
   	TaskN04Handle = osThreadCreate(osThread(TaskN04), (void*) 3);
-  }
+#endif
   /* definition and creation of TaskN05 */
-  if(Numberofsensors>4){
+#if(Numberofsensors>4)
 	//Sensor initialization
 	strcpy(MatrizSensor[4].Sensor_name,Sensor05_name);
 	strcpy(MatrizSensor[4].Sensor_type,Sensor05_type);
@@ -358,9 +357,9 @@ int main(void)
 	MatrizSensor[4].channel=Sensor05_ADC_Channel;
 	osThreadDef(TaskN05, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN05Handle = osThreadCreate(osThread(TaskN05), (void*) 4);
-  }
+#endif
   /* definition and creation of TaskN06 */
-  if(Numberofsensors>5){
+#if(Numberofsensors>5)
 	//Sensor initialization
 	strcpy(MatrizSensor[5].Sensor_name,Sensor06_name);
 	strcpy(MatrizSensor[5].Sensor_type,Sensor06_type);
@@ -369,9 +368,9 @@ int main(void)
 	MatrizSensor[5].channel=Sensor06_ADC_Channel;
 	osThreadDef(TaskN06, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN06Handle = osThreadCreate(osThread(TaskN06), (void*) 5);
-  }
+#endif
   /* definition and creation of TaskN07 */
-  if(Numberofsensors>6){
+#if(Numberofsensors>6)
 	//Sensor initialization
 	strcpy(MatrizSensor[6].Sensor_name,Sensor07_name);
 	strcpy(MatrizSensor[6].Sensor_type,Sensor07_type);
@@ -380,9 +379,9 @@ int main(void)
 	MatrizSensor[6].channel=Sensor07_ADC_Channel;
 	osThreadDef(TaskN07, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN07Handle = osThreadCreate(osThread(TaskN07), (void*) 6);
-  }
+#endif
   /* definition and creation of TaskN08 */
-  if(Numberofsensors>7){
+#if(Numberofsensors>7)
   //Sensor initialization
 	strcpy(MatrizSensor[7].Sensor_name,Sensor08_name);
 	strcpy(MatrizSensor[7].Sensor_type,Sensor08_type);
@@ -391,9 +390,9 @@ int main(void)
 	MatrizSensor[7].channel=Sensor08_ADC_Channel;
 	osThreadDef(TaskN08, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN08Handle = osThreadCreate(osThread(TaskN08), (void*) 7);
-  }
+#endif
   /* definition and creation of TaskN09 */
-  if(Numberofsensors>8){
+#if(Numberofsensors>8)
 	//Sensor initialization
 	strcpy(MatrizSensor[8].Sensor_name,Sensor09_name);
 	strcpy(MatrizSensor[8].Sensor_type,Sensor09_type);
@@ -402,9 +401,9 @@ int main(void)
 	MatrizSensor[8].channel=Sensor09_ADC_Channel;
 	osThreadDef(TaskN09, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN09Handle = osThreadCreate(osThread(TaskN09), (void*) 8);
-  }
+#endif
   /* definition and creation of TaskN10 */
-  if(Numberofsensors>9){
+#if(Numberofsensors>9)
 	//Sensor initialization
 	strcpy(MatrizSensor[9].Sensor_name,Sensor10_name);
 	strcpy(MatrizSensor[9].Sensor_type,Sensor10_type);
@@ -413,7 +412,7 @@ int main(void)
 	MatrizSensor[9].channel=Sensor10_ADC_Channel;
 	osThreadDef(TaskN10, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN10Handle = osThreadCreate(osThread(TaskN10), (void*) 9);
-  }
+#endif
 
   /* USER CODE END RTOS_THREADS */
 
@@ -549,7 +548,7 @@ static void MX_ADC1_Init(void)
   * @param None
   * @retval None
   */
-static void MX_I2C1_SMBUS_Init(void)
+static void MX_I2C1_Init(void)
 {
 
   /* USER CODE BEGIN I2C1_Init 0 */
@@ -559,20 +558,28 @@ static void MX_I2C1_SMBUS_Init(void)
   /* USER CODE BEGIN I2C1_Init 1 */
 
   /* USER CODE END I2C1_Init 1 */
-  hsmbus1.Instance = I2C1;
-  hsmbus1.Init.Timing = 0x2000090E;
-  hsmbus1.Init.AnalogFilter = SMBUS_ANALOGFILTER_ENABLE;
-  hsmbus1.Init.OwnAddress1 = 2;
-  hsmbus1.Init.AddressingMode = SMBUS_ADDRESSINGMODE_7BIT;
-  hsmbus1.Init.DualAddressMode = SMBUS_DUALADDRESS_DISABLE;
-  hsmbus1.Init.OwnAddress2 = 0;
-  hsmbus1.Init.OwnAddress2Masks = SMBUS_OA2_NOMASK;
-  hsmbus1.Init.GeneralCallMode = SMBUS_GENERALCALL_DISABLE;
-  hsmbus1.Init.NoStretchMode = SMBUS_NOSTRETCH_DISABLE;
-  hsmbus1.Init.PacketErrorCheckMode = SMBUS_PEC_DISABLE;
-  hsmbus1.Init.PeripheralMode = SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE;
-  hsmbus1.Init.SMBusTimeout = 0x00008061;
-  if (HAL_SMBUS_Init(&hsmbus1) != HAL_OK)
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.Timing = 0x2000090E;
+  hi2c1.Init.OwnAddress1 = 2;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure Analogue filter
+  */
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure Digital filter
+  */
+  if (HAL_I2CEx_ConfigDigitalFilter(&hi2c1, 0) != HAL_OK)
   {
     Error_Handler();
   }
@@ -671,7 +678,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-
+#if(temperature_degC==1)
 /* USER CODE BEGIN Header_StartTask02 */
 /**
 * @brief Function implementing the Task02 thread environment temperature reading.
@@ -711,7 +718,8 @@ void StartTask02(void const * argument)
   }
   /* USER CODE END StartTask02 */
 }
-
+#endif
+#if(temperaturePCB_degC==1)
 /* USER CODE BEGIN Header_StartTask03 */
 /**
 * @brief Function implementing the Task03 thread internal temperature reading.
@@ -750,7 +758,8 @@ void StartTask03(void const * argument)
   }
   /* USER CODE END StartTask03 */
 }
-
+#endif
+#if (humidity_percent==1)
 /* USER CODE BEGIN Header_StartTask04 */
 /**
 * @brief Function implementing the Task04 thread Humidity sensor reading.
@@ -790,7 +799,8 @@ void StartTask04(void const * argument)
   }
   /* USER CODE END StartTask04 */
 }
-
+#endif
+#if(absolutePressure_kPa==1)
 /* USER CODE BEGIN Header_StartTask05 */
 /**
 * @brief Function implementing the Task05 thread Absolute pressure sensor reading.
@@ -830,6 +840,7 @@ void StartTask05(void const * argument)
   }
   /* USER CODE END StartTask05 */
 }
+#endif
 /* USER CODE BEGIN Header_StartTaskN */
 /**
 * @brief Function implementing the TaskN thread of gas sensor reading.
@@ -877,14 +888,34 @@ void StartTaskN(void const * argument)
 void StartTask01_I2C(void const * argument)
 {
   /* USER CODE BEGIN 5 */
+	uint8_t pRecognized=0;
+	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1);
+	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
   /* Infinite loop */
   for(;;)
   {
+	uint16_t pFuncion=0;
+	HAL_I2C_Slave_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 2);
     osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    if(pFuncion==1){
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1);
+    	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    }
+    else if(pFuncion==2){
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14);
+		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    }
+    else if(pFuncion==3){
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&MatrizSensor, 47*Numberofsensors);
+		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    }
+    else if(pFuncion==4){
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14+(4*Numberofsensors));
+		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    }
   }
   /* USER CODE END 5 */
 }
-
 
 /**
   * @brief  Period elapsed callback in non blocking mode

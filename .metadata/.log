@@ -489,3 +489,224 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-18 08:26:45.141
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-01-18 20:14:40.423 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-01-18 20:14:47.098
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-01-18 20:14:47.139
+!MESSAGE Log4j initialized with config file C:\Users\Usuario\Desktop\nuxtu-LLP\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-18 20:14:56.592
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2022-01-19 12:49:16.961
+!MESSAGE Orphaned CDT build configuration [fr.ac6.managedbuild.config.gnu.cross.exe.debug.922331842]: parent extension cfg [fr.ac6.managedbuild.config.gnu.cross.exe.debug] not found
+!STACK 0
+java.lang.Exception
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuilderCorePlugin.error(ManagedBuilderCorePlugin.java:225)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.loadFromProject(Configuration.java:879)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.<init>(Configuration.java:419)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.load(ConfigurationDataProvider.java:405)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.loadConfiguration(ConfigurationDataProvider.java:573)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:139)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:199)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:510)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:240)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:427)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:409)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:403)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:396)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager.loadSettings(RefreshScopeManager.java:474)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager$1$1.visit(RefreshScopeManager.java:154)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager$1.resourceChanged(RefreshScopeManager.java:142)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:380)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1103)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:556)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:205)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.924
+!MESSAGE Unknown value type "" for id gnu.c.link.option.libs on tool fr.ac6.managedbuild.tool.gnu.cross.c.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.924
+!MESSAGE Unknown value type "" for id gnu.c.link.option.paths on tool fr.ac6.managedbuild.tool.gnu.cross.c.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.925
+!MESSAGE Unknown value type "" for id gnu.c.link.option.other on tool fr.ac6.managedbuild.tool.gnu.cross.c.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.925
+!MESSAGE Unknown value type "" for id gnu.cpp.link.option.libs on tool fr.ac6.managedbuild.tool.gnu.cross.cpp.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.925
+!MESSAGE Unknown value type "" for id gnu.cpp.link.option.paths on tool fr.ac6.managedbuild.tool.gnu.cross.cpp.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.926
+!MESSAGE Unknown value type "" for id gnu.cpp.link.option.other on tool fr.ac6.managedbuild.tool.gnu.cross.cpp.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 4 0 2022-01-19 12:49:25.926
+!MESSAGE Option fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions is no longer supported
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 4 0 2022-01-19 12:49:25.926
+!MESSAGE Option fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti is no longer supported
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.927
+!MESSAGE Value type err, id: gnu.cpp.link.option.flags
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 12:49:25.927
+!MESSAGE Unknown value type "" for id gnu.both.asm.option.include.paths on tool fr.ac6.managedbuild.tool.gnu.cross.assembler
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-01-19 12:49:40.682
+!MESSAGE Indexed 'STM32F3-Discovery' (15 sources, 38 headers) in 1.42 sec: 3,478 declarations; 26,688 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.managedbuilder.core 4 0 2022-01-19 13:07:13.803
+!MESSAGE Orphaned CDT build configuration [fr.ac6.managedbuild.config.gnu.cross.exe.debug.874763238]: parent extension cfg [fr.ac6.managedbuild.config.gnu.cross.exe.debug] not found
+!STACK 0
+java.lang.Exception
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuilderCorePlugin.error(ManagedBuilderCorePlugin.java:225)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.loadFromProject(Configuration.java:879)
+	at org.eclipse.cdt.managedbuilder.internal.core.Configuration.<init>(Configuration.java:419)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.load(ConfigurationDataProvider.java:405)
+	at org.eclipse.cdt.managedbuilder.internal.dataprovider.ConfigurationDataProvider.loadConfiguration(ConfigurationDataProvider.java:573)
+	at org.eclipse.cdt.internal.core.settings.model.CConfigurationDescriptionCache.loadData(CConfigurationDescriptionCache.java:139)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescription.loadDatas(CProjectDescription.java:199)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:510)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:240)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:427)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:409)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:403)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:396)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager.loadSettings(RefreshScopeManager.java:474)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager$1$1.visit(RefreshScopeManager.java:154)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.cdt.core.resources.RefreshScopeManager$1.resourceChanged(RefreshScopeManager.java:142)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:380)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1103)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.toExistingOrNewProject(SmartImportJob.java:556)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:205)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 13:07:17.999
+!MESSAGE Unknown value type "" for id gnu.c.link.option.libs on tool fr.ac6.managedbuild.tool.gnu.cross.c.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 2 0 2022-01-19 13:07:18.000
+!MESSAGE Unknown value type "" for id gnu.c.link.option.paths on tool fr.ac6.managedbuild.tool.gnu.cross.c.linker
+!STACK 0
+org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value type 
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.deserializeValueType(AbstractCubeIDEProjectConfigurator.java:504)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertTool(AbstractCubeIDEProjectConfigurator.java:534)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.convertBuildConfiguration(AbstractCubeIDEProjectConfigurator.java:441)
+	at com.st.stm32cube.ide.mcu.converters.AbstractCubeIDEProjectConfigurator.configure(AbstractCubeIDEProjectConfigurator.java:182)
+	at com.st.stm32cube.ide.mcu.converters.sw4stm32.SW4STM32ToCubeIDEProjectConfigurator.configure(SW4STM32ToCubeIDEProjectConfigurator.java:688)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.importProjectAndChildrenRecursively(SmartImportJob.java:462)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob$1.run(SmartImportJob.java:229)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 4 0 2022-01-19 13:07:18.000
+!MESSAGE Option fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.noexceptions is no longer supported
+
+!ENTRY com.st.stm32cube.ide.mcu.converters 4 0 2022-01-19 13:07:18.001
+!MESSAGE Option fr.ac6.managedbuild.tool.gnu.cross.cpp.linker.nortti is no longer supported
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-01-19 13:07:21.277
+!MESSAGE Indexed 'STM32303C_EVAL' (19 sources, 51 headers) in 1.7 sec: 4,178 declarations; 30,920 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
