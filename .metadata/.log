@@ -710,3 +710,33 @@ org.eclipse.cdt.managedbuilder.core.BuildException: Unknown serialized value typ
 
 !ENTRY org.eclipse.cdt.core 1 0 2022-01-19 13:07:21.277
 !MESSAGE Indexed 'STM32303C_EVAL' (19 sources, 51 headers) in 1.7 sec: 4,178 declarations; 30,920 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+!SESSION 2022-01-19 18:30:10.534 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-01-19 18:30:16.575
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-01-19 18:30:16.615
+!MESSAGE Log4j initialized with config file C:\Users\Usuario\Desktop\nuxtu-LLP\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-19 18:30:22.291
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2022-01-19 18:45:09.526 -----------------------------------------------
+eclipse.buildId=Version 1.8.0
+java.version=11.0.11
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-01-19 18:45:16.055
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-01-19 18:45:16.095
+!MESSAGE Log4j initialized with config file C:\Users\Usuario\Desktop\nuxtu-LLP\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-19 18:45:21.219
+!MESSAGE Started RMI Server, listening on port 41337

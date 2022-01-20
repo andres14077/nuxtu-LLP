@@ -34,15 +34,12 @@
  * Sensor type: Current sensor technology type as string.
  * Main gas: Current sensor main response gas as string.
  * Response time: Current sensor response time (t90) in seconds.
- * Channel: ADC channel
  */
 typedef struct Sensor{
   char Sensor_name[11];
   char Sensor_type[14];
   char Main_gas[20];
   int16_t Response_time;
-  float Data;
-  uint32_t channel;
 } Sensor;
 /**
  * Structure with the information of PCB
@@ -70,8 +67,13 @@ typedef struct PCB{
 #define humidity_percent 1
 #define absolutePressure_kPa 1
 
+#define temperature_degC_Response_time	10
+#define temperaturePCB_degC_Response_time	10
+#define humidity_percent_Response_time	10
+#define absolutePressure_kPa_Response_time	10
+
 #define PCBuniqueID 40
-#define Numberofsensors 4
+#define Numberofsensors 10
 #define Manufacturingdate "dd/mm/yyyy"
 
 
@@ -156,6 +158,8 @@ osSemaphoreId SemI2CHandle;
 
 PCB pcb;
 ADC_ChannelConfTypeDef sConfig2 = {0};
+float DataSensor[Numberofsensors+4];
+uint32_t SensorChannel[Numberofsensors];
 //Definition of atmospheric data sensors
 Sensor ExternalTemperatureSensor;
 Sensor InternalTemperatureSensor;
@@ -311,7 +315,7 @@ int main(void)
   	strcpy(MatrizSensor[0].Sensor_type,Sensor01_type);
   	strcpy(MatrizSensor[0].Main_gas,Sensor01_Main_gas);
   	MatrizSensor[0].Response_time=Sensor01_Response_time;
-  	MatrizSensor[0].channel=Sensor01_ADC_Channel;
+  	SensorChannel[0]=Sensor01_ADC_Channel;
 	osThreadDef(TaskN01, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN01Handle = osThreadCreate(osThread(TaskN01), (void*) 0);
   /* definition and creation of TaskN02 */
@@ -321,7 +325,7 @@ int main(void)
 	strcpy(MatrizSensor[1].Sensor_type,Sensor02_type);
 	strcpy(MatrizSensor[1].Main_gas,Sensor02_Main_gas);
 	MatrizSensor[1].Response_time=Sensor02_Response_time;
-	MatrizSensor[1].channel=Sensor02_ADC_Channel;
+	SensorChannel[1]=Sensor02_ADC_Channel;
 	osThreadDef(TaskN02, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN02Handle = osThreadCreate(osThread(TaskN02), (void*) 1);
 #endif
@@ -332,7 +336,7 @@ int main(void)
   	strcpy(MatrizSensor[2].Sensor_type,Sensor03_type);
   	strcpy(MatrizSensor[2].Main_gas,Sensor03_Main_gas);
   	MatrizSensor[2].Response_time=Sensor03_Response_time;
-  	MatrizSensor[2].channel=Sensor03_ADC_Channel;
+  	SensorChannel[2]=Sensor03_ADC_Channel;
   	osThreadDef(TaskN03, StartTaskN, osPriorityNormal, 0, 128);
   	TaskN03Handle = osThreadCreate(osThread(TaskN03), (void*) 2);
 #endif
@@ -343,7 +347,7 @@ int main(void)
   	strcpy(MatrizSensor[3].Sensor_type,Sensor04_type);
   	strcpy(MatrizSensor[3].Main_gas,Sensor04_Main_gas);
   	MatrizSensor[3].Response_time=Sensor04_Response_time;
-  	MatrizSensor[3].channel=Sensor04_ADC_Channel;
+  	SensorChannel[3]=Sensor04_ADC_Channel;
   	osThreadDef(TaskN04, StartTaskN, osPriorityNormal, 0, 128);
   	TaskN04Handle = osThreadCreate(osThread(TaskN04), (void*) 3);
 #endif
@@ -354,7 +358,7 @@ int main(void)
 	strcpy(MatrizSensor[4].Sensor_type,Sensor05_type);
 	strcpy(MatrizSensor[4].Main_gas,Sensor05_Main_gas);
 	MatrizSensor[4].Response_time=Sensor05_Response_time;
-	MatrizSensor[4].channel=Sensor05_ADC_Channel;
+	SensorChannel[4]=Sensor05_ADC_Channel;
 	osThreadDef(TaskN05, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN05Handle = osThreadCreate(osThread(TaskN05), (void*) 4);
 #endif
@@ -365,7 +369,7 @@ int main(void)
 	strcpy(MatrizSensor[5].Sensor_type,Sensor06_type);
 	strcpy(MatrizSensor[5].Main_gas,Sensor06_Main_gas);
 	MatrizSensor[5].Response_time=Sensor06_Response_time;
-	MatrizSensor[5].channel=Sensor06_ADC_Channel;
+	SensorChannel[5]=Sensor06_ADC_Channel;
 	osThreadDef(TaskN06, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN06Handle = osThreadCreate(osThread(TaskN06), (void*) 5);
 #endif
@@ -376,7 +380,7 @@ int main(void)
 	strcpy(MatrizSensor[6].Sensor_type,Sensor07_type);
 	strcpy(MatrizSensor[6].Main_gas,Sensor07_Main_gas);
 	MatrizSensor[6].Response_time=Sensor07_Response_time;
-	MatrizSensor[6].channel=Sensor07_ADC_Channel;
+	SensorChannel[6]=Sensor07_ADC_Channel;
 	osThreadDef(TaskN07, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN07Handle = osThreadCreate(osThread(TaskN07), (void*) 6);
 #endif
@@ -387,7 +391,7 @@ int main(void)
 	strcpy(MatrizSensor[7].Sensor_type,Sensor08_type);
 	strcpy(MatrizSensor[7].Main_gas,Sensor08_Main_gas);
 	MatrizSensor[7].Response_time=Sensor08_Response_time;
-	MatrizSensor[7].channel=Sensor08_ADC_Channel;
+	SensorChannel[7]=Sensor08_ADC_Channel;
 	osThreadDef(TaskN08, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN08Handle = osThreadCreate(osThread(TaskN08), (void*) 7);
 #endif
@@ -398,7 +402,7 @@ int main(void)
 	strcpy(MatrizSensor[8].Sensor_type,Sensor09_type);
 	strcpy(MatrizSensor[8].Main_gas,Sensor09_Main_gas);
 	MatrizSensor[8].Response_time=Sensor09_Response_time;
-	MatrizSensor[8].channel=Sensor09_ADC_Channel;
+	SensorChannel[8]=Sensor09_ADC_Channel;
 	osThreadDef(TaskN09, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN09Handle = osThreadCreate(osThread(TaskN09), (void*) 8);
 #endif
@@ -409,7 +413,7 @@ int main(void)
 	strcpy(MatrizSensor[9].Sensor_type,Sensor10_type);
 	strcpy(MatrizSensor[9].Main_gas,Sensor10_Main_gas);
 	MatrizSensor[9].Response_time=Sensor10_Response_time;
-	MatrizSensor[9].channel=Sensor10_ADC_Channel;
+	SensorChannel[9]=Sensor10_ADC_Channel;
 	osThreadDef(TaskN10, StartTaskN, osPriorityNormal, 0, 128);
 	TaskN10Handle = osThreadCreate(osThread(TaskN10), (void*) 9);
 #endif
@@ -693,7 +697,7 @@ void StartTask02(void const * argument)
 	strcpy(ExternalTemperatureSensor.Sensor_name,"SHT31-ARP-B");
 	strcpy(ExternalTemperatureSensor.Sensor_type,"Temperature");
 	strcpy(ExternalTemperatureSensor.Main_gas,"....");
-	ExternalTemperatureSensor.Response_time=20;
+	ExternalTemperatureSensor.Response_time=temperature_degC_Response_time;
   /* Infinite loop */
   for(;;)
   {
@@ -713,7 +717,7 @@ void StartTask02(void const * argument)
 	//The temperature formula is T=-66.875 + 218.75*Vt/Vd
 	//where Vd=3.3, Vt=adc*3.3/2^12
 	//The temperature formula is T=-66.875 + 218.75*Vadc/4096
-	ExternalTemperatureSensor.Data=-66.875+(53.40576172e-3*Vadc);
+	DataSensor[0]=-66.875+(53.40576172e-3*Vadc);
     osDelay(ExternalTemperatureSensor.Response_time);
   }
   /* USER CODE END StartTask02 */
@@ -734,7 +738,7 @@ void StartTask03(void const * argument)
 	strcpy(InternalTemperatureSensor.Sensor_name,"Internal");
 	strcpy(InternalTemperatureSensor.Sensor_type,"Micro-controller temperature ");
 	strcpy(InternalTemperatureSensor.Main_gas,"....");
-	InternalTemperatureSensor.Response_time=10;
+	InternalTemperatureSensor.Response_time=temperaturePCB_degC_Response_time;
   /* Infinite loop */
   for(;;)
   {
@@ -753,7 +757,7 @@ void StartTask03(void const * argument)
 	osMutexRelease(MutexADC1Handle);
 	//The formula is Temperature (in °C) = {(V25 – Vadc) / Avg_Slope} + 25
 	//where V25=1.43, Avg_Slope=4.3, Vadc=adc*3.3/4096
-	InternalTemperatureSensor.Data=((1.43 - (805.6640625e-6 * Vadc)) / 4.3) + 25;
+	DataSensor[1]=((1.43 - (805.6640625e-6 * Vadc)) / 4.3) + 25;
     osDelay(InternalTemperatureSensor.Response_time);
   }
   /* USER CODE END StartTask03 */
@@ -774,7 +778,7 @@ void StartTask04(void const * argument)
 	strcpy(HumiditySensor.Sensor_name,"SHT31-ARP-B");
 	strcpy(HumiditySensor.Sensor_type,"Humidity:");
 	strcpy(HumiditySensor.Main_gas,"....");
-	HumiditySensor.Response_time=200;
+	HumiditySensor.Response_time=humidity_percent_Response_time;
   /* Infinite loop */
   for(;;)
   {
@@ -794,7 +798,7 @@ void StartTask04(void const * argument)
 	//The temperature formula is Rh=-12.5 + 125*Vt/Vd
 	//where Vd=3.3, Vt=adc*3.3/2^12
 	//The temperature formula is Rh=-12.5 + 125*Vadc/4096
-    HumiditySensor.Data=-12.5 + (30.51757813e-3*Vadc);
+    DataSensor[2]=-12.5 + (30.51757813e-3*Vadc);
     osDelay(HumiditySensor.Response_time);
   }
   /* USER CODE END StartTask04 */
@@ -815,7 +819,7 @@ void StartTask05(void const * argument)
 	strcpy(PressureSensor.Sensor_name,"KP229-E2701-XTMA1");
 	strcpy(PressureSensor.Sensor_type,"Absolute pressure");
 	strcpy(PressureSensor.Main_gas,"....");
-	PressureSensor.Response_time=1;
+	PressureSensor.Response_time=humidity_percent_Response_time;
   /* Infinite loop */
   for(;;)
   {
@@ -835,7 +839,7 @@ void StartTask05(void const * argument)
 	//The temperature formula is P=(Vp/Vdd-b)/a
 	//where Vp=adc*3.3/2^12, Vdd=3.3, b=0.05069, a=0.00293.
 	//The temperature formula is P=-b/a+adc/a/4096=-17.3003413+83.32444539e-3*adc
-	PressureSensor.Data=-17.3003413 + (83.32444539e-3*Vadc);
+	DataSensor[3]=-17.3003413 + (83.32444539e-3*Vadc);
     osDelay(PressureSensor.Response_time);
   }
   /* USER CODE END StartTask05 */
@@ -858,7 +862,7 @@ void StartTaskN(void const * argument)
   {
     /*use of the ADC with mutex, this so that only one task can use the ADC at a time*/
 	osMutexWait(MutexADC1Handle, 100);
-	sConfig2.Channel=MatrizSensor[(int)argument].channel;
+	sConfig2.Channel=SensorChannel[(int)argument];
 	if (HAL_ADC_ConfigChannel(&hadc1, &sConfig2) != HAL_OK){Error_Handler();}
 	// Start ADC Conversion
 	HAL_ADC_Start(&hadc1);
@@ -870,7 +874,7 @@ void StartTaskN(void const * argument)
 	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The voltage value in miliVolts is Vadc=adc*3300/4096
-	MatrizSensor[(int)argument].Data=805.6640625e-3*Vadc;
+	DataSensor[((int)argument)+3]=805.6640625e-3*Vadc;
     osDelay(MatrizSensor[(int)argument].Response_time*1000);
   }
   /* USER CODE END StartTaskN*/
@@ -894,8 +898,8 @@ void StartTask01_I2C(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	uint16_t pFuncion=0;
-	HAL_I2C_Slave_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 2);
+	uint8_t pFuncion=0;
+	HAL_I2C_Slave_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 1);
     osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     if(pFuncion==1){
     	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1);
@@ -906,11 +910,11 @@ void StartTask01_I2C(void const * argument)
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==3){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&MatrizSensor, 47*Numberofsensors);
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)MatrizSensor, 47*Numberofsensors);
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==4){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14+(4*Numberofsensors));
+    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)DataSensor, 14+(4*Numberofsensors));
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
   }
