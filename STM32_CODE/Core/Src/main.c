@@ -60,7 +60,11 @@ typedef struct PCB{
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+//I2C functions
+#define REQUEST_DEVICE_TYPE 1
+#define REQUEST_DEVICE_METADATA_BASIC 2
+#define REQUEST_DEVICE_METADATA_COMPLETE 3
+#define REQUEST_DEVICE_VOLTAGE_DATA 4
 //PCB configuration
 #define temperature_degC 1
 #define temperaturePCB_degC 1
@@ -899,22 +903,22 @@ void StartTask01_I2C(void const * argument)
   for(;;)
   {
 	uint8_t pFuncion=0;
-	HAL_I2C_Slave_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 1);
+	HAL_I2C_Slave_Seq_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 1,I2C_FIRST_FRAME);
     osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
-    if(pFuncion==1){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1);
+    if(pFuncion==REQUEST_DEVICE_TYPE){
+    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1,I2C_LAST_FRAME);
     	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
-    else if(pFuncion==2){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14);
+    else if(pFuncion==REQUEST_DEVICE_METADATA_BASIC){
+    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14,I2C_LAST_FRAME);
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
-    else if(pFuncion==3){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)MatrizSensor, 47*Numberofsensors);
+    else if(pFuncion==REQUEST_DEVICE_METADATA_COMPLETE){
+    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)MatrizSensor, 47*Numberofsensors,I2C_LAST_FRAME);
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
-    else if(pFuncion==4){
-    	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)DataSensor, 14+(4*Numberofsensors));
+    else if(pFuncion==REQUEST_DEVICE_VOLTAGE_DATA){
+    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)DataSensor, 14+(4*Numberofsensors),I2C_LAST_FRAME);
 		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
   }
