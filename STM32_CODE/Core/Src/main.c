@@ -172,6 +172,7 @@ Sensor PressureSensor;
 
 Sensor MatrizSensor[Numberofsensors];
 
+//definition of menssage 3 and 4
 uint8_t mensaje3[47*Numberofsensors];
 uint8_t mensaje4[14+(4*Numberofsensors)];
 //Definition of tasks for atmospheric data sensors
@@ -293,7 +294,7 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of Task01_I2C */
-  osThreadDef(Task01_I2C, StartTask01_I2C, osPriorityRealtime, 0, 128);
+  osThreadDef(Task01_I2C, StartTask01_I2C, osPriorityRealtime, 0, 300);
   Task01_I2CHandle = osThreadCreate(osThread(Task01_I2C), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -429,7 +430,7 @@ int main(void)
 	TaskN10Handle = osThreadCreate(osThread(TaskN10), (void*) 9);
 #endif
 
-
+// menssage 3 armed
 	for(int i=0;i<Numberofsensors;i++){
 		for(int j=0;j<11;j++){
 			mensaje3[47*i+j]=MatrizSensor[i].Sensor_name[j];
@@ -440,9 +441,8 @@ int main(void)
 		for(int j=0;j<20;j++){
 			mensaje3[25+47*i+j]=MatrizSensor[i].Main_gas[j];
 		}
-
-		mensaje3[45+47*i]=((MatrizSensor[i].Response_time)>>8);
-		mensaje3[46+47*i]=((MatrizSensor[i].Response_time)<<8);
+        mensaje3[45+47*i]=((MatrizSensor[i].Response_time)>>8);
+		mensaje3[46+47*i]=MatrizSensor[i].Response_time;
 	}
   /* USER CODE END RTOS_THREADS */
 
@@ -988,14 +988,14 @@ void StartTask01_I2C(void const * argument)
 //		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==REQUEST_DEVICE_VOLTAGE_DATA){
-    	int xx=14+(4*Numberofsensors);
+//    	int xx=14+(4*Numberofsensors);
     	for(int i=0;i<(4+Numberofsensors);i++){
     		mensaje4[4*i]=(uint8_t)((uint32_t)DataSensor[i]&0x000ff);
     		mensaje4[4*i+1]=(uint8_t)((uint32_t)DataSensor[i]&0x00ff00)>>8;
     		mensaje4[4*i+2]=(uint8_t)((uint32_t)DataSensor[i]&0xff0000)>>16;
     		mensaje4[4*i+3]=(uint8_t)((uint32_t)DataSensor[i]&0xff000000)>>24;
     	}
-    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje4, xx)!=HAL_OK){
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje4, 14+(4*Numberofsensors))!=HAL_OK){
     		osDelay(1);
     	}
     	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
@@ -1003,15 +1003,14 @@ void StartTask01_I2C(void const * argument)
 		}
 //		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
-    else{
-    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1)!=HAL_OK){
-    		osDelay(1);
-    	}
-    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
-			osDelay(1);
-		}
-//		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
-	}
+//    else{
+//    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1)!=HAL_OK){
+//    		osDelay(1);
+//    	}
+//    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+//			osDelay(1);
+//		}
+//	}
   }
   /* USER CODE END 5 */
 }
