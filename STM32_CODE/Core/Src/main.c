@@ -66,39 +66,39 @@ typedef struct PCB{
 #define REQUEST_DEVICE_METADATA_COMPLETE 3
 #define REQUEST_DEVICE_VOLTAGE_DATA 4
 //PCB configuration
-#define temperature_degC 1
+#define temperature_degC 0
 #define temperaturePCB_degC 1
-#define humidity_percent 1
+#define humidity_percent 0
 #define absolutePressure_kPa 1
 
-#define temperature_degC_Response_time	10
-#define temperaturePCB_degC_Response_time	10
-#define humidity_percent_Response_time	10
-#define absolutePressure_kPa_Response_time	10
+#define temperature_degC_Response_time	40
+#define temperaturePCB_degC_Response_time	40
+#define humidity_percent_Response_time	40
+#define absolutePressure_kPa_Response_time	40
 
-#define PCBuniqueID 40
-#define Numberofsensors 10
-#define Manufacturingdate "dd/mm/yyyy"
+#define PCBuniqueID 10
+#define Numberofsensors 3
+#define Manufacturingdate "20/01/2022"
 
 
 //Sensor 01 parameters
-#define Sensor01_name			"xxx1"
-#define Sensor01_type			"fire"
-#define Sensor01_Main_gas		"azufre"
-#define Sensor01_Response_time	10
-#define Sensor01_ADC_Channel	ADC_CHANNEL_6
+#define Sensor01_name			"FECS40-1000"
+#define Sensor01_type			"Electroquimico"
+#define Sensor01_Main_gas		"Monoxido de carbono"
+#define Sensor01_Response_time	30
+#define Sensor01_ADC_Channel	ADC_CHANNEL_3
 //Sensor 02 parameters
-#define Sensor02_name			"xxx1"
-#define Sensor02_type			"fire"
-#define Sensor02_Main_gas		"azufre"
-#define Sensor02_Response_time	10
-#define Sensor02_ADC_Channel	ADC_CHANNEL_6
+#define Sensor02_name			"CO-CE-10000"
+#define Sensor02_type			"Electroquimico"
+#define Sensor02_Main_gas		"Monoxido de carbono"
+#define Sensor02_Response_time	75
+#define Sensor02_ADC_Channel	ADC_CHANNEL_4
 //Sensor 03 parameters
-#define Sensor03_name			"xxx1"
-#define Sensor03_type			"fire"
-#define Sensor03_Main_gas		"azufre"
-#define Sensor03_Response_time	10
-#define Sensor03_ADC_Channel	ADC_CHANNEL_6
+#define Sensor03_name			"4-NO2-2000"
+#define Sensor03_type			"Electroquimico"
+#define Sensor03_Main_gas		"Dioxido de nitrogeno"
+#define Sensor03_Response_time	60
+#define Sensor03_ADC_Channel	ADC_CHANNEL_5
 //Sensor 04 parameters
 #define Sensor04_name			"xxx1"
 #define Sensor04_type			"fire"
@@ -172,6 +172,8 @@ Sensor PressureSensor;
 
 Sensor MatrizSensor[Numberofsensors];
 
+uint8_t mensaje3[47*Numberofsensors];
+uint8_t mensaje4[14+(4*Numberofsensors)];
 //Definition of tasks for atmospheric data sensors
 osThreadId Task02Handle;
 osThreadId Task03Handle;
@@ -188,6 +190,9 @@ osThreadId TaskN07Handle;
 osThreadId TaskN08Handle;
 osThreadId TaskN09Handle;
 osThreadId TaskN10Handle;
+
+uint8_t pRecognized;
+uint8_t pFuncion;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -204,6 +209,7 @@ void StartTask03(void const * argument);
 void StartTask04(void const * argument);
 void StartTask05(void const * argument);
 void StartTaskN(void const * argument);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -251,6 +257,7 @@ int main(void)
 	sConfig2.Offset = 0;
   // PCB data initialization
   pcb.PCBUniqueID=PCBuniqueID;
+  pcb.PCBUniqueID=pcb.PCBUniqueID<<8|pcb.PCBUniqueID>>8;
   pcb.NumberOfSensors=Numberofsensors;
   strcpy(pcb.ManufacturingDate,Manufacturingdate);
   pcb.PCBCapabilities=temperature_degC*8 + temperaturePCB_degC*4 + humidity_percent*2 + absolutePressure_kPa;
@@ -422,6 +429,21 @@ int main(void)
 	TaskN10Handle = osThreadCreate(osThread(TaskN10), (void*) 9);
 #endif
 
+
+	for(int i=0;i<Numberofsensors;i++){
+		for(int j=0;j<11;j++){
+			mensaje3[47*i+j]=MatrizSensor[i].Sensor_name[j];
+		}
+		for(int j=0;j<14;j++){
+			mensaje3[11+47*i+j]=MatrizSensor[i].Sensor_type[j];
+		}
+		for(int j=0;j<20;j++){
+			mensaje3[25+47*i+j]=MatrizSensor[i].Main_gas[j];
+		}
+
+		mensaje3[45+47*i]=((MatrizSensor[i].Response_time)>>8);
+		mensaje3[46+47*i]=((MatrizSensor[i].Response_time)<<8);
+	}
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -567,8 +589,8 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.Timing = 0x2000090E;
-  hi2c1.Init.OwnAddress1 = 2;
+  hi2c1.Init.Timing = 0x0000020B;
+  hi2c1.Init.OwnAddress1 = 26;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -685,6 +707,32 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_I2C_ListenCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+  HAL_I2C_EnableListen_IT(hi2c); // slave is ready again
+}
+
+void HAL_I2C_AddrCallback(I2C_HandleTypeDef *hi2c, uint8_t TransferDirection, uint16_t AddrMatchCode)
+{
+  if( TransferDirection==I2C_DIRECTION_TRANSMIT ) {
+	  HAL_I2C_Slave_Seq_Receive_IT(hi2c, &pFuncion, 1, I2C_NEXT_FRAME);
+
+  } else {
+    HAL_I2C_Slave_Seq_Transmit_IT(hi2c, &pRecognized, 1, I2C_NEXT_FRAME);
+  }
+}
+
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+	osSemaphoreRelease(SemI2CHandle);
+//  HAL_I2C_Slave_Seq_Receive_IT(hi2c, &offset, 1, I2C_NEXT_FRAME);
+}
+
+void HAL_I2C_SlaveTxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+	osSemaphoreRelease(SemI2CHandle);
+//  HAL_I2C_Slave_Seq_Transmit_IT(hi2c, &leido, 1, I2C_NEXT_FRAME);
+}
 
 #if(temperature_degC==1)
 /* USER CODE BEGIN Header_StartTask02 */
@@ -878,12 +926,11 @@ void StartTaskN(void const * argument)
 	HAL_ADC_Stop(&hadc1);
 	osMutexRelease(MutexADC1Handle);
 	//The voltage value in miliVolts is Vadc=adc*3300/4096
-	DataSensor[((int)argument)+3]=805.6640625e-3*Vadc;
+	DataSensor[((int)argument)+4]=805.6640625e-3*Vadc;
     osDelay(MatrizSensor[(int)argument].Response_time*1000);
   }
   /* USER CODE END StartTaskN*/
 }
-
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartTask01_I2C */
@@ -896,31 +943,75 @@ void StartTaskN(void const * argument)
 void StartTask01_I2C(void const * argument)
 {
   /* USER CODE BEGIN 5 */
-	uint8_t pRecognized=0;
-	HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1);
-	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+	pRecognized=0;
+	while(HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1)!=HAL_OK){
+		osDelay(1);
+	}
+	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+		osDelay(1);
+	}
   /* Infinite loop */
   for(;;)
   {
-	uint8_t pFuncion=0;
-	HAL_I2C_Slave_Seq_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 1,I2C_FIRST_FRAME);
-    osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+	while(HAL_I2C_Slave_Receive_IT(&hi2c1,(uint8_t*)&pFuncion, 1)!=HAL_OK){
+		osDelay(1);
+	}
+	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+		osDelay(1);
+	}
+	pFuncion=pFuncion;
     if(pFuncion==REQUEST_DEVICE_TYPE){
-    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1,I2C_LAST_FRAME);
-    	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    	while(HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1)!=HAL_OK){
+    		osDelay(1);
+    	}
+    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+			osDelay(1);
+		}
+//    	osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==REQUEST_DEVICE_METADATA_BASIC){
-    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14,I2C_LAST_FRAME);
-		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pcb, 14)!=HAL_OK){
+    		osDelay(1);
+    	}
+    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+			osDelay(1);
+		}
+//		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==REQUEST_DEVICE_METADATA_COMPLETE){
-    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)MatrizSensor, 47*Numberofsensors,I2C_LAST_FRAME);
-		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje3, 47*Numberofsensors)!=HAL_OK){
+    		osDelay(1);
+    	}
+    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+			osDelay(1);
+		}
+//		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
     else if(pFuncion==REQUEST_DEVICE_VOLTAGE_DATA){
-    	HAL_I2C_Slave_Seq_Transmit_IT(&hi2c1,(uint8_t*)DataSensor, 14+(4*Numberofsensors),I2C_LAST_FRAME);
-		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+    	int xx=14+(4*Numberofsensors);
+    	for(int i=0;i<(4+Numberofsensors);i++){
+    		mensaje4[4*i]=(uint8_t)((uint32_t)DataSensor[i]&0x000ff);
+    		mensaje4[4*i+1]=(uint8_t)((uint32_t)DataSensor[i]&0x00ff00)>>8;
+    		mensaje4[4*i+2]=(uint8_t)((uint32_t)DataSensor[i]&0xff0000)>>16;
+    		mensaje4[4*i+3]=(uint8_t)((uint32_t)DataSensor[i]&0xff000000)>>24;
+    	}
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje4, xx)!=HAL_OK){
+    		osDelay(1);
+    	}
+    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+			osDelay(1);
+		}
+//		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
     }
+    else{
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)&pRecognized, 1)!=HAL_OK){
+    		osDelay(1);
+    	}
+    	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
+			osDelay(1);
+		}
+//		osSemaphoreWait(SemI2CHandle, 0xFFFFFFFF);
+	}
   }
   /* USER CODE END 5 */
 }

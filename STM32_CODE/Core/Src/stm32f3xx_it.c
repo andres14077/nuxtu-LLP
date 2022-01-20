@@ -167,13 +167,13 @@ void DebugMon_Handler(void)
 void I2C1_EV_IRQHandler(void)
 {
   /* USER CODE BEGIN I2C1_EV_IRQn 0 */
-	if(HAL_I2C_GetState(&hi2c1) == HAL_I2C_STATE_READY){
-		osSemaphoreRelease(SemI2CHandle);
-	}
+
   /* USER CODE END I2C1_EV_IRQn 0 */
   HAL_I2C_EV_IRQHandler(&hi2c1);
   /* USER CODE BEGIN I2C1_EV_IRQn 1 */
-
+//  if(HAL_I2C_GetState(&hi2c1) == HAL_I2C_STATE_READY){
+//  		osSemaphoreRelease(SemI2CHandle);
+//  }
   /* USER CODE END I2C1_EV_IRQn 1 */
 }
 
