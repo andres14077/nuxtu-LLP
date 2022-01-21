@@ -444,6 +444,13 @@ int main(void)
         mensaje3[45+47*i]=((MatrizSensor[i].Response_time)>>8);
 		mensaje3[46+47*i]=MatrizSensor[i].Response_time;
 	}
+	// menssage 4 armed
+	for(int i=0;i<(4+Numberofsensors);i++){
+		mensaje4[4*i]=1;
+		mensaje4[4*i+1]=1;
+		mensaje4[4*i+2]=1;
+		mensaje4[4*i+3]=1;
+	}
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -989,13 +996,13 @@ void StartTask01_I2C(void const * argument)
     }
     else if(pFuncion==REQUEST_DEVICE_VOLTAGE_DATA){
 //    	int xx=14+(4*Numberofsensors);
-    	for(int i=0;i<(4+Numberofsensors);i++){
-    		mensaje4[4*i]=(uint8_t)((uint32_t)DataSensor[i]&0x000ff);
-    		mensaje4[4*i+1]=(uint8_t)((uint32_t)DataSensor[i]&0x00ff00)>>8;
-    		mensaje4[4*i+2]=(uint8_t)((uint32_t)DataSensor[i]&0xff0000)>>16;
-    		mensaje4[4*i+3]=(uint8_t)((uint32_t)DataSensor[i]&0xff000000)>>24;
-    	}
-    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje4, 14+(4*Numberofsensors))!=HAL_OK){
+//    	for(int i=0;i<(4+Numberofsensors);i++){
+//    		mensaje4[4*i]=(uint8_t)((uint32_t)DataSensor[i]&0x000ff);
+//    		mensaje4[4*i+1]=(uint8_t)((uint32_t)DataSensor[i]&0x00ff00)>>8;
+//    		mensaje4[4*i+2]=(uint8_t)((uint32_t)DataSensor[i]&0xff0000)>>16;
+//    		mensaje4[4*i+3]=(uint8_t)((uint32_t)DataSensor[i]&0xff000000)>>24;
+//    	}
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje3, sizeof(mensaje3))!=HAL_OK){
     		osDelay(1);
     	}
     	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
