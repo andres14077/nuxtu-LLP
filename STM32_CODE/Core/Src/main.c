@@ -162,7 +162,7 @@ osSemaphoreId SemI2CHandle;
 
 PCB pcb;
 ADC_ChannelConfTypeDef sConfig2 = {0};
-float DataSensor[Numberofsensors+4];
+volatile float DataSensor[Numberofsensors+4];
 uint32_t SensorChannel[Numberofsensors];
 //Definition of atmospheric data sensors
 Sensor ExternalTemperatureSensor;
@@ -173,8 +173,8 @@ Sensor PressureSensor;
 Sensor MatrizSensor[Numberofsensors];
 
 //definition of menssage 3 and 4
-uint8_t mensaje3[47*Numberofsensors];
-uint8_t mensaje4[14+(4*Numberofsensors)];
+volatile uint8_t mensaje3[47*Numberofsensors];
+volatile uint8_t mensaje4[16+(4*Numberofsensors)];
 //Definition of tasks for atmospheric data sensors
 osThreadId Task02Handle;
 osThreadId Task03Handle;
@@ -777,7 +777,12 @@ void StartTask02(void const * argument)
 	//where Vd=3.3, Vt=adc*3.3/2^12
 	//The temperature formula is T=-66.875 + 218.75*Vadc/4096
 	DataSensor[0]=-66.875+(53.40576172e-3*Vadc);
+	mensaje4[0]=(uint8_t)((uint32_t)DataSensor[0]&0xff000000)>>24;
+	mensaje4[1]=(uint8_t)((uint32_t)DataSensor[0]&0xff0000)>>16;
+	mensaje4[2]=(uint8_t)((uint32_t)DataSensor[0]&0x00ff00)>>8;
+	mensaje4[3]=(uint8_t)((uint32_t)DataSensor[0]&0x000ff);
     osDelay(ExternalTemperatureSensor.Response_time);
+
   }
   /* USER CODE END StartTask02 */
 }
@@ -817,6 +822,10 @@ void StartTask03(void const * argument)
 	//The formula is Temperature (in °C) = {(V25 – Vadc) / Avg_Slope} + 25
 	//where V25=1.43, Avg_Slope=4.3, Vadc=adc*3.3/4096
 	DataSensor[1]=((1.43 - (805.6640625e-6 * Vadc)) / 4.3) + 25;
+	mensaje4[4]=(uint8_t)((uint32_t)DataSensor[1]&0xff000000)>>24;
+	mensaje4[5]=(uint8_t)((uint32_t)DataSensor[1]&0xff0000)>>16;
+	mensaje4[6]=(uint8_t)((uint32_t)DataSensor[1]&0x00ff00)>>8;
+	mensaje4[7]=(uint8_t)((uint32_t)DataSensor[1]&0x000ff);
     osDelay(InternalTemperatureSensor.Response_time);
   }
   /* USER CODE END StartTask03 */
@@ -858,6 +867,10 @@ void StartTask04(void const * argument)
 	//where Vd=3.3, Vt=adc*3.3/2^12
 	//The temperature formula is Rh=-12.5 + 125*Vadc/4096
     DataSensor[2]=-12.5 + (30.51757813e-3*Vadc);
+    mensaje4[8]=(uint8_t)((uint32_t)DataSensor[2]&0xff000000)>>24;
+	mensaje4[9]=(uint8_t)((uint32_t)DataSensor[2]&0xff0000)>>16;
+	mensaje4[10]=(uint8_t)((uint32_t)DataSensor[2]&0x00ff00)>>8;
+	mensaje4[11]=(uint8_t)((uint32_t)DataSensor[2]&0x000ff);
     osDelay(HumiditySensor.Response_time);
   }
   /* USER CODE END StartTask04 */
@@ -899,6 +912,10 @@ void StartTask05(void const * argument)
 	//where Vp=adc*3.3/2^12, Vdd=3.3, b=0.05069, a=0.00293.
 	//The temperature formula is P=-b/a+adc/a/4096=-17.3003413+83.32444539e-3*adc
 	DataSensor[3]=-17.3003413 + (83.32444539e-3*Vadc);
+	mensaje4[12]=(uint8_t)((uint32_t)DataSensor[3]&0xff000000)>>24;
+	mensaje4[13]=(uint8_t)((uint32_t)DataSensor[3]&0xff0000)>>16;
+	mensaje4[14]=(uint8_t)((uint32_t)DataSensor[3]&0x00ff00)>>8;
+	mensaje4[15]=(uint8_t)((uint32_t)DataSensor[3]&0x000ff);
     osDelay(PressureSensor.Response_time);
   }
   /* USER CODE END StartTask05 */
@@ -934,6 +951,10 @@ void StartTaskN(void const * argument)
 	osMutexRelease(MutexADC1Handle);
 	//The voltage value in miliVolts is Vadc=adc*3300/4096
 	DataSensor[((int)argument)+4]=805.6640625e-3*Vadc;
+	mensaje4[16+4*(int)argument]=(uint8_t)((uint32_t)DataSensor[3]&0xff000000)>>24;
+	mensaje4[17+4*(int)argument]=(uint8_t)((uint32_t)DataSensor[3]&0xff0000)>>16;
+	mensaje4[18+4*(int)argument]=(uint8_t)((uint32_t)DataSensor[3]&0x00ff00)>>8;
+	mensaje4[19+4*(int)argument]=(uint8_t)((uint32_t)DataSensor[3]&0x000ff);
     osDelay(MatrizSensor[(int)argument].Response_time*1000);
   }
   /* USER CODE END StartTaskN*/
@@ -1002,7 +1023,7 @@ void StartTask01_I2C(void const * argument)
 //    		mensaje4[4*i+2]=(uint8_t)((uint32_t)DataSensor[i]&0xff0000)>>16;
 //    		mensaje4[4*i+3]=(uint8_t)((uint32_t)DataSensor[i]&0xff000000)>>24;
 //    	}
-    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje3, sizeof(mensaje3))!=HAL_OK){
+    	while (HAL_I2C_Slave_Transmit_IT(&hi2c1,(uint8_t*)mensaje4, sizeof(mensaje4))!=HAL_OK){
     		osDelay(1);
     	}
     	while (HAL_I2C_GetState(&hi2c1) != HAL_I2C_STATE_READY){
